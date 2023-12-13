@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
+import NavBar from "./NavBar";
+import Home from "../pages/Home";
 
 function App() {
-  return <h1>Test Test</h1>;
+  return(
+    <>
+    <header>Schmooze</header>
+    <NavBar />
+    <Home />
+    </>
+  )
 }
 
 export default App;
