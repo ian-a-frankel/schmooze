@@ -1,6 +1,7 @@
 import Login from "../components/Login";
 import Logout from "../components/Logout";
 import Signup from "../components/Signup";
+import Create from "./Create";
 import LoginSignup from "./LoginSignup";
 import Message from "./Message";
 
@@ -19,7 +20,8 @@ Sed pellentesque est a libero feugiat, a auctor diam facilisis. Fusce pharetra e
             {/* <Login />
             <Logout/>
             <Signup /> */}
-            <Message />
+            {/* <Message /> */}
+            <Create />
         </div>
 
     )
