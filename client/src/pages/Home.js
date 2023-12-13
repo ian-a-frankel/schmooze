@@ -1,4 +1,8 @@
+import Login from "../components/Login";
+import Logout from "../components/Logout";
+import Signup from "../components/Signup";
 import LoginSignup from "./LoginSignup";
+import Message from "./Message";
 
 function Home() {
     return(
@@ -12,7 +16,10 @@ Sed pellentesque est a libero feugiat, a auctor diam facilisis. Fusce pharetra e
             <div className="sign-in">
                 <p><a href="#LoginSignup">Sign up</a> or <a href="#LoginSignup">Log in</a></p>
             </div>
-        
+            {/* <Login />
+            <Logout/>
+            <Signup /> */}
+            <Message />
         </div>
 
     )
