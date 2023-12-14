@@ -24,6 +24,7 @@ class User(db.Model, SerializerMixin):
     serialize_rules =('-messages','-userConversations.user',)
     id = db.Column(db.Integer, primary_key=True)
     full_name=db.Column(db.String, nullable=False)
+    image=db.Column(db.String, default='default.jpeg')
     occupation=db.Column(db.String, nullable=True)
     messages=db.relationship('Message', back_populates='user')
     userConversations=db.relationship('UserConversation', back_populates='user')
