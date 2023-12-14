@@ -1,0 +1,110 @@
+{
+  "messages": [
+    {
+      "id": 2,
+    "messages": [
+        {
+            "conversation_id": 2,
+            "date_sent": "2023-12-14 09:32:52",
+            "id": 3,
+            "text": "Decide leader less garden recently.",
+            "user": {
+                "full_name": "Beth Baker",
+                "id": 8,
+                "occupation": null
+            },
+            "user_id": 8
+        },
+        {
+            "conversation_id": 2,
+            "date_sent": "2023-12-14 09:32:52",
+            "id": 4,
+            "text": "Travel health lay interesting keep.",
+            "user": {
+                "full_name": "Mark Bond",
+                "id": 5,
+                "occupation": null
+            },
+            "user_id": 5
+        },
+        {
+            "conversation_id": 2,
+            "date_sent": "2023-12-14 09:32:52",
+            "id": 5,
+            "text": "Order necessary power southern shake.",
+            "user": {
+                "full_name": "Troy Gillespie",
+                "id": 6,
+                "occupation": null
+            },
+            "user_id": 6
+        },
+        {
+            "conversation_id": 2,
+            "date_sent": "2023-12-14 09:32:52",
+            "id": 6,
+            "text": "Story step anything TV turn bad result away.",
+            "user": {
+                "full_name": "Tiffany Evans",
+                "id": 4,
+                "occupation": null
+            },
+            "user_id": 4
+        }
+    ],
+    "name": "Djibouti",
+    "userConversations": [
+        {
+            "conversation_id": 2,
+            "id": 3,
+            "user": {
+                "full_name": "Beth Baker",
+                "id": 8,
+                "occupation": null
+            },
+            "user_id": 8
+        },
+        {
+            "conversation_id": 2,
+            "id": 4,
+            "user": {
+                "full_name": "Mark Bond",
+                "id": 5,
+                "occupation": null
+            },
+            "user_id": 5
+        },
+        {
+            "conversation_id": 2,
+            "id": 5,
+            "user": {
+                "full_name": "Troy Gillespie",
+                "id": 6,
+                "occupation": null
+            },
+            "user_id": 6
+        },
+        {
+            "conversation_id": 2,
+            "id": 6,
+            "user": {
+                "full_name": "Tiffany Evans",
+                "id": 4,
+                "occupation": null
+            },
+            "user_id": 4
+        }
+    ]
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

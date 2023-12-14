@@ -4,6 +4,9 @@ import NavBar from "./NavBar";
 import Home from "../pages/Home";
 
 function App() {
+
+  
+  
   return(
     <>
     <header>Schmooze</header>
