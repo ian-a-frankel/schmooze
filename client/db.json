@@ -1,7 +1,7 @@
 {
-  "messages": [
+    "messages": [
     {
-      "id": 2,
+        "id": 2,
     "messages": [
         {
             "conversation_id": 2,
@@ -96,15 +96,15 @@
         }
     ]
     }
-  ],
-  "comments": [
+    ],
+    "comments": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+        "id": 1,
+        "body": "some comment",
+        "postId": 1
     }
-  ],
-  "profile": {
+    ],
+    "profile": {
     "name": "typicode"
-  }
+    }
 }
