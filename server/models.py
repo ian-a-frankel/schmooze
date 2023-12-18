@@ -26,6 +26,7 @@ class User(db.Model, SerializerMixin):
     full_name=db.Column(db.String, nullable=False)
     image=db.Column(db.String, default='default.jpeg')
     occupation=db.Column(db.String, nullable=True)
+    # password_hash = db.Column(db.String)
     messages=db.relationship('Message', back_populates='user')
     userConversations=db.relationship('UserConversation', back_populates='user')
     conversations = association_proxy('userConversations', 'conversation')

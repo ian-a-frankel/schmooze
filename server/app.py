@@ -3,18 +3,22 @@
 # Standard library imports
 
 # Remote library imports
-from flask import request, make_response, jsonify
+from flask import request, make_response, jsonify, session
 from flask_restful import Resource
 from flask_socketio import SocketIO, emit
 import time
 
 # Local imports
-from config import app, db, api
+from config import app, db, api, bcrypt
 # Add your model imports
 from models import User, Conversation, Message, UserConversation
 socketio = SocketIO(app)
 
-# Views go here!
+# HELPER METHOD #
+
+def current_user():
+    if session["user_id"]:
+        return User.query.filter(User.id == session["user_id"]).first()
 
 @socketio.on('message')
 def handle_message(data):
@@ -28,9 +32,9 @@ class Users(Resource):
     
     def post(self):
         data = request.get_json()
-
+        # password_hash = bcrypt.generate_password_hash(data['password']).decode('utf-8')
         new_user = User(
-            full_name=data['full_name']
+            full_name=data['full_name'] #, password_hash=password_hash
         )
         db.session.add(new_user)
         db.session.commit()
@@ -103,6 +107,33 @@ class MessagesById(Resource):
         db.session.add(message)
         db.session.commit()
 
+# SESSION LOGIN/LOGOUT#
+
+# @app.post('/login')
+# def login():
+#     data = request.json
+#     user = User.query.filter(User.full_name == data["full_name"]).first()
+#     if user and bcrypt.check_password_hash(user.password_hash, data['password']):
+#         session["user_id"] = user.id
+#         return user.to_dict(), 201
+#     else:
+#         return { "message": "Invalid username or password" }, 401
+    
+
+# @app.get(URL_PREFIX + '/check_session')
+# def check_session():
+#     user_id = session.get("user_id")
+#     user = User.query.filter(User.id == user_id).first()
+#     if user:
+#         return user.to_dict(), 200
+#     else:
+#         return { "message": "No logged in user" }, 401
+    
+
+# @app.delete(URL_PREFIX + '/logout')
+# def logout():
+#     session.pop('user_id')
+#     return {}, 204
 
         
 api.add_resource(Users, '/users')
