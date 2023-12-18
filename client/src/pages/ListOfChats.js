@@ -18,12 +18,13 @@ function ListOfChats({currentUser,URL}) {
         }
         
     }, [currentUser])
+
+    const sortedConversations = userChats.sort((a, b) =>
+        b.conversation.messages.slice(-1)[0].id - a.conversation.messages.slice(-1)[0].id
+    );
     
-    // const info = userChats.map((chat) => {
-    //     return <Chat key={chat.id} chat={chat} />
-    // })
-    const info = userChats.map((chat) => {
-        return <p key={chat.id}>{chat.id}</p>
+    const info = sortedConversations.map((conversation) => {
+        return <Chat key={conversation.id} conversation={conversation} />
     })
     return(
         <>
