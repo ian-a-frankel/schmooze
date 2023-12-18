@@ -22,6 +22,7 @@
 pids
 *.pid
 *.seed
+
 # Ignore uploaded files in development.
 /storage/*
 !/storage/.keep
@@ -64,3 +65,4 @@ __pycache__
 instance
 .vscode
 package-lock.json
+Pipfile.lock
