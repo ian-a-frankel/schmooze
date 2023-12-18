@@ -4,13 +4,15 @@ import Search from "../components/Search";
 import AddUser from "../components/AddUser";
 import RemoveUser from "../components/RemoveUser";
 
-function Create({URL}) {
-    // const [currentUser, setCurrentUser] = useState('')
+function Create({currentUser}) {
+
     const [allUsers, setAllUsers] = useState([])
     const [deleteableMembers, setDeleteableMembers] = useState([])
     
     const [nameSearchText, setNameSearchText] = useState('')
     const [targetUser, setTargetUser] = useState('')
+
+    const [chatName, setChatName] = useState('')
     
 
     const addableMembers = allUsers.filter(user => {
@@ -20,15 +22,23 @@ function Create({URL}) {
     })
     
 
-
+    
     useEffect(() => {
-        fetch(URL+'/users')
-        .then(resp => resp.json())
-        .then(data => {
-            console.log(data)
-            setAllUsers(data)
-        })
-    }, [])
+
+        if (currentUser) {
+            fetch('/api/users')
+            .then(resp => resp.json())
+            .then(data => {
+                console.log(data)
+                setAllUsers(data.filter(d => { 
+                    console.log(currentUser)
+                    return d.id !== currentUser.id
+                }))
+            })
+        }
+    }, [currentUser])
+    // console.log(currentUser)
+
 
 
     
@@ -71,10 +81,12 @@ function Create({URL}) {
             <form className="create">
                 <Search setNameSearchText={setNameSearchText} />
                 {displayRemove}
+                <button type="submit" onSubmit={handleSubmit}>Create Chat With Selected Users</button>
                 {displayAddUsers}
                 <label>Name: </label>
-                <input  type="text" name="create" placeholder="Optional" />
-                <button type="submit" onSubmit={handleSubmit}>Create</button>
+                <input onChange={(e)=>{
+                    setChatName(e.target.value) 
+                    console.log(chatName)}}  type="text" name="create" placeholder="Optional" />
             </form>
 
         </div>
