@@ -4,8 +4,7 @@ import Search from "../components/Search";
 import AddUsersButton from "../components/AddUsersButton";
 
 function Create() {
-
-    const [currentUser, setCurrentUser] = useState('')
+    // const [currentUser, setCurrentUser] = useState('')
     const [allUsers, setAllUsers] = useState([])
     const [deleteableMember, setDeleteableMember] = useState('')
     const [addableMember, setAddableMember] = useState('')

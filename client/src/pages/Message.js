@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import ChatBox from "../components/ChatBox";
 import NavBar from "../components/NavBar";
 
-function Message() {
-
-    const [messages, setmessages] = useState([])
+function Message({currentUser, URL={URL}}) {
     
+    const [messages, setmessages] = useState([])
+    console.log(currentUser)
     useEffect(() => {
         fetch('http://localhost:3000/messages')
         .then(resp => resp.json())
