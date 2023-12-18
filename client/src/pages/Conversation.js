@@ -1,20 +1,25 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import SingleMessage from "../components/SingleMessage";
 import NavBar from "../components/NavBar";
 
-function Message({currentUser, URL={URL}}) {
+function Conversation({currentUser}) {
+
+    const params = useParams()
+    const id = params.id
     
     const [messages, setmessages] = useState([])
-    console.log(currentUser)
+    
     useEffect(() => {
-        fetch('http://localhost:3000/messages')
+        if(currentUser) {
+        fetch(`/api/users/${currentUser.id}/conversations/${id}`)
         .then(resp => resp.json())
         .then(data => {
             console.log(data)
             setmessages(data)
-            
         })
-    }, [])
+    }
+    }, [currentUser])
     
     const chatbox = messages.map((msg) => {
         return <SingleMessage key={msg.id} msg={msg} />
@@ -35,4 +40,4 @@ function Message({currentUser, URL={URL}}) {
     )
 }
 
-export default Message;
+export default Conversation;
