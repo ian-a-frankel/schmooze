@@ -1,10 +1,14 @@
-function AddUser({user}) {
+function AddUser({user, handleAdd, setTargetUser}) {
 
 
 
     return(
         <div className="user">
-            <p>{user.full_name}</p><button>Add</button>
+            <p>{user.full_name}</p><button onMouseDown={(e) => setTargetUser(user)} onMouseUp={e => 
+                {   e.preventDefault()
+                    handleAdd(e)
+                    
+            }} onClick={e => {e.preventDefault()}} key={user.id}>Add</button>
         </div>
     )
 }
