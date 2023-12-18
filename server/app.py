@@ -13,6 +13,7 @@ from config import app, db, api, bcrypt
 # Add your model imports
 from models import User, Conversation, Message, UserConversation
 socketio = SocketIO(app)
+URL_PREFIX = '/api'
 
 # HELPER METHOD #
 
@@ -38,6 +39,7 @@ class Users(Resource):
         )
         db.session.add(new_user)
         db.session.commit()
+        session["user_id"] = new_user.id
 
         return make_response(new_user.to_dict(), 201)
     
@@ -112,13 +114,18 @@ class UsersConversations(Resource):
         user = db.session.get(User, id).to_dict()
         return make_response(jsonify(user['userConversations']), 200)
 
+# @app.get(URL_PREFIX + '/users/<int:user_id>/conversations/<int:conv_id')
+# def get_info(user_id, conv_id):
+#     user = db.session.get(User, id).to_dict()
+
 
 # SESSION LOGIN/LOGOUT#
 
-@app.post('/login')
+@app.post(URL_PREFIX + '/login')
 def login():
     data = request.json
-    user = User.query.filter(User.full_name == data["full_name"]).first()
+    full_name=data.get('full_name')
+    user = User.query.filter(User.full_name == full_name).first()
     if user and bcrypt.check_password_hash(user.password_hash, data['password']):
         session["user_id"] = user.id
         return user.to_dict(), 201
@@ -126,7 +133,7 @@ def login():
         return { "message": "Invalid username or password" }, 401
     
 
-@app.get('/check_session')
+@app.get(URL_PREFIX + '/check_session')
 def check_session():
     user_id = session.get("user_id")
     user = User.query.filter(User.id == user_id).first()
@@ -136,19 +143,19 @@ def check_session():
         return { "message": "No logged in user" }, 401
     
 
-@app.delete('/logout')
+@app.delete(URL_PREFIX + '/logout')
 def logout():
     session.pop('user_id')
     return {}, 204
 
         
-api.add_resource(Users, '/users')
-api.add_resource(Conversations, '/conversations')
-api.add_resource(UserConversations, '/userConversations')
-api.add_resource(ConversationById, '/conversations/<int:id>')
-api.add_resource(Messages, '/messages')
-api.add_resource(MessagesById, '/messages/<int:id>')
-api.add_resource(UsersConversations, '/users/<int:id>/conversations')
+api.add_resource(Users, URL_PREFIX + '/users')
+api.add_resource(Conversations, URL_PREFIX + '/conversations')
+api.add_resource(UserConversations, URL_PREFIX + '/userConversations')
+api.add_resource(ConversationById, URL_PREFIX + '/conversations/<int:id>')
+api.add_resource(Messages, URL_PREFIX + '/messages')
+api.add_resource(MessagesById, URL_PREFIX + '/messages/<int:id>')
+api.add_resource(UsersConversations, URL_PREFIX + '/users/<int:id>/conversations')
 
 if __name__ == '__main__':
     socketio.run(app, port=5555, debug=True)

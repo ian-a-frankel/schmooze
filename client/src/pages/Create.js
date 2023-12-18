@@ -5,8 +5,7 @@ import AddUser from "../components/AddUser";
 import RemoveUser from "../components/RemoveUser";
 
 function Create() {
-
-    const [currentUser, setCurrentUser] = useState('')
+    // const [currentUser, setCurrentUser] = useState('')
     const [allUsers, setAllUsers] = useState([])
     const [deleteableMembers, setDeleteableMembers] = useState([])
     
