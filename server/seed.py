@@ -7,7 +7,7 @@ import time
 
 # Remote library imports
 from faker import Faker
-
+from config import bcrypt
 # Local imports
 from app import app
 from models import db
@@ -15,11 +15,12 @@ from models import db
 if __name__ == '__main__':
     fake = Faker()
     with app.app_context():
+        
         User.query.delete()
         print("Starting seed...")
         users=[]
         for _ in range(10):
-            users.append(User(full_name=fake.name()))
+            users.append(User(full_name=fake.name(), password_hash= bcrypt.generate_password_hash('123').decode('utf-8')))
         db.session.add_all(users)
         db.session.commit()
 

@@ -32,9 +32,9 @@ class Users(Resource):
     
     def post(self):
         data = request.get_json()
-        # password_hash = bcrypt.generate_password_hash(data['password']).decode('utf-8')
+        password_hash = bcrypt.generate_password_hash(data['password']).decode('utf-8')
         new_user = User(
-            full_name=data['full_name'] #, password_hash=password_hash
+            full_name=data['full_name'], password_hash=password_hash
         )
         db.session.add(new_user)
         db.session.commit()
@@ -107,33 +107,39 @@ class MessagesById(Resource):
         db.session.add(message)
         db.session.commit()
 
+class UsersConversations(Resource):
+    def get(self, id):
+        user = db.session.get(User, id).to_dict()
+        return make_response(jsonify(user['userConversations']), 200)
+
+
 # SESSION LOGIN/LOGOUT#
 
-# @app.post('/login')
-# def login():
-#     data = request.json
-#     user = User.query.filter(User.full_name == data["full_name"]).first()
-#     if user and bcrypt.check_password_hash(user.password_hash, data['password']):
-#         session["user_id"] = user.id
-#         return user.to_dict(), 201
-#     else:
-#         return { "message": "Invalid username or password" }, 401
+@app.post('/login')
+def login():
+    data = request.json
+    user = User.query.filter(User.full_name == data["full_name"]).first()
+    if user and bcrypt.check_password_hash(user.password_hash, data['password']):
+        session["user_id"] = user.id
+        return user.to_dict(), 201
+    else:
+        return { "message": "Invalid username or password" }, 401
     
 
-# @app.get(URL_PREFIX + '/check_session')
-# def check_session():
-#     user_id = session.get("user_id")
-#     user = User.query.filter(User.id == user_id).first()
-#     if user:
-#         return user.to_dict(), 200
-#     else:
-#         return { "message": "No logged in user" }, 401
+@app.get('/check_session')
+def check_session():
+    user_id = session.get("user_id")
+    user = User.query.filter(User.id == user_id).first()
+    if user:
+        return user.to_dict(), 200
+    else:
+        return { "message": "No logged in user" }, 401
     
 
-# @app.delete(URL_PREFIX + '/logout')
-# def logout():
-#     session.pop('user_id')
-#     return {}, 204
+@app.delete('/logout')
+def logout():
+    session.pop('user_id')
+    return {}, 204
 
         
 api.add_resource(Users, '/users')
@@ -142,6 +148,7 @@ api.add_resource(UserConversations, '/userConversations')
 api.add_resource(ConversationById, '/conversations/<int:id>')
 api.add_resource(Messages, '/messages')
 api.add_resource(MessagesById, '/messages/<int:id>')
+api.add_resource(UsersConversations, '/users/<int:id>/conversations')
 
 if __name__ == '__main__':
     socketio.run(app, port=5555, debug=True)
