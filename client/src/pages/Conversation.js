@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ChatBox from "../components/ChatBox";
+import SingleMessage from "../components/SingleMessage";
 import NavBar from "../components/NavBar";
 
 function Message({currentUser, URL={URL}}) {
@@ -17,7 +17,7 @@ function Message({currentUser, URL={URL}}) {
     }, [])
     
     const chatbox = messages.map((msg) => {
-        return <ChatBox key={msg.id} msg={msg} />
+        return <SingleMessage key={msg.id} msg={msg} />
     })
 
     return(

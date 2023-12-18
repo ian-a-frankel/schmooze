@@ -11,6 +11,8 @@ function NavBar() {
 
             <NavLink to="/login">Login</NavLink>
 
+            <NavLink to="/listOfChats">List Of Chats</NavLink>
+
         </nav>
     )
 }

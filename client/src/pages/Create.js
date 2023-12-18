@@ -4,7 +4,7 @@ import Search from "../components/Search";
 import AddUser from "../components/AddUser";
 import RemoveUser from "../components/RemoveUser";
 
-function Create() {
+function Create({URL}) {
     // const [currentUser, setCurrentUser] = useState('')
     const [allUsers, setAllUsers] = useState([])
     const [deleteableMembers, setDeleteableMembers] = useState([])
@@ -22,7 +22,7 @@ function Create() {
 
 
     useEffect(() => {
-        fetch('/users')
+        fetch(URL+'/users')
         .then(resp => resp.json())
         .then(data => {
             console.log(data)
