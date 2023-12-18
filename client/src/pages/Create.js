@@ -24,15 +24,17 @@ function Create({currentUser}) {
 
     
     useEffect(() => {
-        fetch('/api/users')
-        .then(resp => resp.json())
-        .then(data => {
-            console.log(data)
-            setAllUsers(data.filter(d => { 
-                console.log(d.id)
-                return d !== currentUser
-            }))
-        })
+        if (currentUser) {
+            fetch('/api/users')
+            .then(resp => resp.json())
+            .then(data => {
+                console.log(data)
+                setAllUsers(data.filter(d => { 
+                    console.log(currentUser)
+                    return d.id !== currentUser.id
+                }))
+            })
+        }
     }, [currentUser])
     // console.log(currentUser)
 
