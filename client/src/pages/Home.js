@@ -3,6 +3,7 @@ import Logout from "./Logout";
 import Signup from "./Signup";
 import Create from "./Create";
 import Message from "./Message";
+import {NavLink} from "react-router-dom"
 
 function Home() {
     return(
@@ -14,7 +15,8 @@ Pellentesque auctor condimentum sagittis. Phasellus massa enim, tincidunt a hend
 
 Sed pellentesque est a libero feugiat, a auctor diam facilisis. Fusce pharetra eget nunc quis scelerisque. Sed porta eleifend mi, eget vulputate turpis tempor rutrum. Mauris egestas pretium elit, ac.</p>
             <div className="sign-in">
-                <p><a href="#LoginSignup">Sign up</a> or <a href="#LoginSignup">Log in</a></p>
+                <p><NavLink to="/signup">Sign up</NavLink> or <NavLink to="/login">Log in</NavLink>
+</p>
             </div>
             {/* <Login />
             <Logout/>

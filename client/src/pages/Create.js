@@ -1,7 +1,22 @@
+import { useEffect, useState } from "react";
+import NavBar from "../components/NavBar";
 import Search from "../components/Search";
 
 function Create() {
-    return(
+
+    const [currentUser, setCurrentUser] = useState('')
+    const [deleteableMember, setDeleteableMember] = useState('')
+    const [addableMember, setAddableMember] = useState('')
+    const [nameSearchText, setNameSearchText] = useState('')
+
+    useEffect(() => {
+        fetch('')
+        .then(resp => resp.json())
+        .then(data => console.log(data))
+    }, [])
+
+    return(<>
+    <NavBar />
         <div className="create" >
 
             <form className="create">
@@ -12,6 +27,7 @@ function Create() {
             </form>
 
         </div>
+        </>
     )
 }
 
