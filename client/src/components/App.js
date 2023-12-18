@@ -83,7 +83,7 @@ function App() {
     },
     {
       path: "/create",
-      element: <Create />
+      element: <Create currentUser={currentUser} />
     },
     {
       path: "/login",
