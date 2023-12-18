@@ -5,13 +5,13 @@ function NavBar() {
         <nav className="navbar">
             <NavLink to="/">Home</NavLink>
 
-            <NavLink to="/messages">Message</NavLink>
-
             <NavLink to="/create">New Chat</NavLink>
 
             <NavLink to="/login">Login</NavLink>
 
             <NavLink to="/listOfChats">List Of Chats</NavLink>
+
+            <NavLink to="/logout">LogOut</NavLink>
 
         </nav>
     )
