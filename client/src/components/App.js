@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Home from "../pages/Home";
-import Message from "../pages/Conversation";
-import {createBrowserRouter, RouterProvider} from "react-router-dom"
+import Conversation from "../pages/Conversation";
+import {createBrowserRouter, RouterProvider, Switch, Route, useParams} from "react-router-dom"
 import Create from "../pages/Create";
 import Login from "../pages/Login";
 import Logout from "../pages/Logout";
@@ -11,6 +10,7 @@ import Signup from "../pages/Signup";
 import ListOfChats from "../pages/ListOfChats";
 
 const URL = "/api"
+
 const POST_HEADERS = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -18,6 +18,7 @@ const POST_HEADERS = {
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
+  const params = useParams()
 
   // CHECK SESSION //
   useEffect(() => {
@@ -79,8 +80,8 @@ function App() {
       element: <Home />
     },
     {
-      path: "/messages",
-      element: <Message currentUser={currentUser} URL={URL}/>
+      path: `/conversations/:id`,
+      element: <Conversation currentUser={currentUser}/>
     },
     {
       path: "/listOfChats",

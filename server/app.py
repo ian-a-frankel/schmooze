@@ -148,6 +148,17 @@ def logout():
     session.pop('user_id')
     return {}, 204
 
+# @app.get(URL_PREFIX + '/users/<int:u_id>/conversations/<int:c_id>')
+# def get_conv_with_user(u_id, c_id):
+#     user_id = session.get("user_id")
+#     user = User.query.filter(User.id == user_id).first()
+#     conversation = Conversation.query.filter(Conversation.id == c_id)
+#     if user:
+#         if user_id == u_id and conversation in user.conversations:
+#             return [m.to_dict() for m in conversation.messages], 200
+#         else:
+#             return {"message": "User not logged in or not in conversation"}, 401
+
         
 api.add_resource(Users, URL_PREFIX + '/users')
 api.add_resource(Conversations, URL_PREFIX + '/conversations')
