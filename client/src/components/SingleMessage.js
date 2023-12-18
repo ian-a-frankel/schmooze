@@ -1,5 +1,5 @@
 
-function ChatBox({msg}) {
+function SingleMessage({msg}) {
 
     return(
         <div className="message-box">
@@ -15,4 +15,4 @@ function ChatBox({msg}) {
     )
 }
 
-export default ChatBox;
+export default SingleMessage;

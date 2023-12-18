@@ -2,7 +2,7 @@ import Login from "./Login";
 import Logout from "./Logout";
 import Signup from "./Signup";
 import Create from "./Create";
-import Message from "./Message";
+import Message from "./Conversation";
 import {NavLink} from "react-router-dom"
 import NavBar from "../components/NavBar";
 

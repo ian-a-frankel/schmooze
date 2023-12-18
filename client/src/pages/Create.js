@@ -5,7 +5,7 @@ import AddUser from "../components/AddUser";
 import RemoveUser from "../components/RemoveUser";
 
 function Create({currentUser}) {
-    
+
     const [allUsers, setAllUsers] = useState([])
     const [deleteableMembers, setDeleteableMembers] = useState([])
     
@@ -24,6 +24,7 @@ function Create({currentUser}) {
 
     
     useEffect(() => {
+
         if (currentUser) {
             fetch('/api/users')
             .then(resp => resp.json())
@@ -37,6 +38,7 @@ function Create({currentUser}) {
         }
     }, [currentUser])
     // console.log(currentUser)
+
 
 
     
