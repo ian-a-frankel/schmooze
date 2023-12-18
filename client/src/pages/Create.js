@@ -1,21 +1,27 @@
 import { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import Search from "../components/Search";
-import AddUsersButton from "../components/AddUsersButton";
+import AddUser from "../components/AddUser";
 
 function Create() {
 
     const [currentUser, setCurrentUser] = useState('')
     const [allUsers, setAllUsers] = useState([])
-    const [deleteableMember, setDeleteableMember] = useState('')
-    const [addableMember, setAddableMember] = useState('')
+    const [deleteableMember, setDeleteableMember] = useState([])
     const [nameSearchText, setNameSearchText] = useState('')
+    const addableMembers = allUsers.filter(user => {
+        return user.full_name.toUpperCase().includes(nameSearchText.toUpperCase())
+    })
 
     useEffect(() => {
-        fetch('127.0.0.1/5555/users')
+        fetch('/users')
         .then(resp => resp.json())
-        .then(data => setAllUsers(data))
+        .then(data => {
+            console.log(data)
+            setAllUsers(data)
+        })
     }, [])
+
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -30,15 +36,19 @@ function Create() {
         e.preventDefault()
     }
 
+    console.log(nameSearchText)
 
+    const displayAddUsers = addableMembers.map(user => {
+        return <AddUser key={user.id} user={user} />
+    })
 
     return(<>
     <NavBar />
         <div className="create" >
 
             <form className="create">
-                <Search />
-                <AddUsersButton/>
+                <Search setNameSearchText={setNameSearchText} />
+                {displayAddUsers}
                 <label>Name: </label>
                 <input  type="text" name="create" placeholder="Optional" />
                 <button type="submit" onSubmit={handleSubmit}>Create</button>
