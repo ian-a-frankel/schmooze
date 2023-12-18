@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import Search from "../components/Search";
+import AddUsersButton from "../components/AddUsersButton";
 
 function Create() {
 
@@ -10,7 +11,7 @@ function Create() {
     const [nameSearchText, setNameSearchText] = useState('')
 
     useEffect(() => {
-        fetch('')
+        fetch('/users')
         .then(resp => resp.json())
         .then(data => console.log(data))
     }, [])
@@ -21,6 +22,7 @@ function Create() {
 
             <form className="create">
                 <Search />
+                <AddUsersButton/>
                 <label>Name: </label>
                 <input  type="text" name="create" placeholder="Optional" />
                 <button type="submit">Create</button>
