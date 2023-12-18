@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ChatBox from "../components/ChatBox";
+import NavBar from "../components/NavBar";
 
 function Message() {
 
@@ -20,6 +21,8 @@ function Message() {
     })
 
     return(
+        <>
+        <NavBar />
         <div className="message">
             {chatbox}
             <form className="message-form">
@@ -28,6 +31,7 @@ function Message() {
                 <button type="submit">Send</button>
             </form>
         </div>
+        </>
     )
 }
 

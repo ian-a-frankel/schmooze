@@ -3,9 +3,12 @@ import Logout from "./Logout";
 import Signup from "./Signup";
 import Create from "./Create";
 import Message from "./Message";
+import {NavLink} from "react-router-dom"
+import NavBar from "../components/NavBar";
 
 function Home() {
-    return(
+    return(<>
+    <NavBar />
         <div id="welcome">
             <h1>Welcome to Schmooze</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet, erat sed rutrum pulvinar, ligula diam ullamcorper odio, nec consequat urna justo nec felis. Praesent eleifend hendrerit eros, cursus euismod odio luctus vitae. Quisque tincidunt risus iaculis, scelerisque sapien non, sollicitudin augue. Aenean malesuada leo orci, tincidunt cursus leo faucibus eu. Proin eu lacinia neque. Sed tincidunt lacinia tellus, pretium interdum metus porttitor vel. In egestas arcu at ligula ullamcorper gravida. Nullam at enim ipsum. Curabitur et eleifend tortor. Nulla tincidunt iaculis eros, at suscipit nibh euismod eget. Nulla facilisi. Maecenas blandit, mi consequat sodales ultrices, ligula urna sagittis dolor, ac scelerisque nisi ex a ligula.
@@ -14,15 +17,12 @@ Pellentesque auctor condimentum sagittis. Phasellus massa enim, tincidunt a hend
 
 Sed pellentesque est a libero feugiat, a auctor diam facilisis. Fusce pharetra eget nunc quis scelerisque. Sed porta eleifend mi, eget vulputate turpis tempor rutrum. Mauris egestas pretium elit, ac.</p>
             <div className="sign-in">
-                <p><a href="#LoginSignup">Sign up</a> or <a href="#LoginSignup">Log in</a></p>
+                <p><NavLink to="/signup">Sign up</NavLink> or <NavLink to="/login">Log in</NavLink>
+</p>
             </div>
-            {/* <Login />
-            <Logout/>
-            <Signup /> */}
-            <Message />
-            {/* <Create /> */}
-        </div>
 
+        </div>
+        </>
     )
 }
 

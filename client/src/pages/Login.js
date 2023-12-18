@@ -1,6 +1,9 @@
+import NavBar from "../components/NavBar";
 
 function Login() {
     return(
+        <>
+        <NavBar />
         <div className="login-form">
         <h2>⁜ Log In ⁜</h2>
             <form>
@@ -13,6 +16,7 @@ function Login() {
             <a href="./Signup">Sign up here if you do not have an account</a>
         
         </div>
+        </>
     )
 }
 

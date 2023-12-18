@@ -1,11 +1,16 @@
+import {NavLink} from "react-router-dom"
 
 function NavBar() {
     return (
         <nav className="navbar">
-            <a href="#Home">Home</a>
-            <a href="#Message">Message</a>
-            <a href="#Create">Create</a>
-            {/* <a href="#LoginSignup">{isLogin? "Log Out": "Log In or Sign Up" }</a> */}
+            <NavLink to="/">Home</NavLink>
+
+            <NavLink to="/messages">Message</NavLink>
+
+            <NavLink to="/create">New Chat</NavLink>
+
+            <NavLink to="/login">Login</NavLink>
+
         </nav>
     )
 }

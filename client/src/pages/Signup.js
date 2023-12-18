@@ -1,6 +1,9 @@
+import NavBar from "../components/NavBar";
 
 function Signup() {
     return(
+        <>
+        <NavBar />
         <div className="signup-form">
         <h2>⁜ Sign Up ⁜</h2>
             <form>
@@ -14,6 +17,7 @@ function Signup() {
             </form>
         
         </div>
+        </>
     )
 }
 
