@@ -114,9 +114,9 @@ class UsersConversations(Resource):
         user = db.session.get(User, id).to_dict()
         return make_response(jsonify(user['userConversations']), 200)
 
-@app.get(URL_PREFIX + '/users/<int:user_id>/conversations/<int:conv_id')
-def get_info(user_id, conv_id):
-    user = db.session.get(User, id).to_dict()
+# @app.get(URL_PREFIX + '/users/<int:user_id>/conversations/<int:conv_id')
+# def get_info(user_id, conv_id):
+#     user = db.session.get(User, id).to_dict()
 
 
 # SESSION LOGIN/LOGOUT#

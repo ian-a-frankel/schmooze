@@ -12,7 +12,8 @@ function Logout({logout}) {
             <p>You will not be able to leave comments and like your favorite movies.</p>
             <button onClick={()=>{
                 logout()
-                navigate('/')}}>Log Out</button>
+                // navigate('/')}
+            }}>Log Out</button>
         </div>
     );
 }

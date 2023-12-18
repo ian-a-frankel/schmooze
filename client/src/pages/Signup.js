@@ -26,7 +26,7 @@ function Signup({attemptSignup}) {
         <h2>⁜ Sign Up ⁜</h2>
             <form onSubmit={(e)=>{
                 handleSubmit(e)
-                navigate('/messages')
+                // navigate('/messages')
             }}>
                 <label>Enter your Username</label>
                 <input  onChange={handleChange} type="text" name="full_name" placeholder="Username" /><br/>
