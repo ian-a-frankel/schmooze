@@ -10,6 +10,7 @@ function Login() {
             <input  type="text" name="Password" placeholder="Password" /><br/>
             <button type="submit">Log in</button>
             </form>
+            <a href="./Signup">Sign up here if you do not have an account</a>
         
         </div>
     )

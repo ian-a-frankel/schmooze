@@ -1,8 +1,7 @@
-import Login from "../components/Login";
-import Logout from "../components/Logout";
-import Signup from "../components/Signup";
+import Login from "./Login";
+import Logout from "./Logout";
+import Signup from "./Signup";
 import Create from "./Create";
-import LoginSignup from "./LoginSignup";
 import Message from "./Message";
 
 function Home() {
@@ -20,8 +19,8 @@ Sed pellentesque est a libero feugiat, a auctor diam facilisis. Fusce pharetra e
             {/* <Login />
             <Logout/>
             <Signup /> */}
-            {/* <Message /> */}
-            <Create />
+            <Message />
+            {/* <Create /> */}
         </div>
 
     )
