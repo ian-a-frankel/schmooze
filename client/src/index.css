@@ -5,3 +5,8 @@
   --text: hsla(0, 0%, 100%, 0.88);
 }
 
+.conversation-container {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
