@@ -77,7 +77,7 @@ function App() {
   const routes = [
     {
       path: "/",
-      element: <Home />
+      element: <Home currentUser={currentUser} />
     },
     {
       path: `/conversations/:id`,
@@ -93,15 +93,15 @@ function App() {
     },
     {
       path: "/login",
-      element: <Login attemptLogin={attemptLogin}/>
+      element: <Login attemptLogin={attemptLogin} currentUser={currentUser}/>
     },
     {
       path: "/logout",
-      element: <Logout logout={logout}/>
+      element: <Logout logout={logout} currentUser={currentUser}/>
     },
     {
       path: "/signup",
-      element: <Signup attemptSignup={attemptSignup}/>
+      element: <Signup attemptSignup={attemptSignup} currentUser={currentUser} />
     }
 
   ]

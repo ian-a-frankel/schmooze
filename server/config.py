@@ -34,5 +34,5 @@ db.init_app(app)
 # Instantiate REST API
 api = Api(app)
 
-# Instantiate CORS
-CORS(app)
+# # Instantiate CORS
+# CORS(app)

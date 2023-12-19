@@ -91,9 +91,10 @@ class Messages(Resource):
             "text":new_message.text,
             "date_sent": new_message.date_sent,
             "conversation_id": new_message.conversation_id,
-            "user_full_name": author.full_name
+            "user": author.to_dict()
         }
-        socketio.emit('message', result, broadcast=True)
+        ####### I have changed here
+        socketio.emit('message', result)
         return make_response(result, 201)
     
 class MessagesById(Resource):
@@ -170,4 +171,3 @@ api.add_resource(UsersConversations, URL_PREFIX + '/users/<int:id>/conversations
 
 if __name__ == '__main__':
     socketio.run(app, port=5555, debug=True)
-

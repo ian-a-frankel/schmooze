@@ -6,10 +6,8 @@ import Message from "./Conversation";
 import {NavLink} from "react-router-dom"
 import NavBar from "../components/NavBar";
 
-function Home() {
+function Home({currentUser}) {
     return(<>
-    <NavBar />
-        <div id="Schmooze" className="Home">
             
             
             <div class="image-container">

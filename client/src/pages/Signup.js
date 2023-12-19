@@ -2,7 +2,7 @@ import NavBar from "../components/NavBar";
 import { useNavigate } from "react-router-dom";
 import React, {useState} from 'react';
 
-function Signup({attemptSignup}) {
+function Signup({attemptSignup, currentUser}) {
     const [userInfo, setUserInfo]=useState({
         full_name:'',
         password: '',
@@ -16,17 +16,17 @@ function Signup({attemptSignup}) {
     function handleSubmit(e) {
         e.preventDefault()
         attemptSignup(userInfo)
-      }
+    }
 
     const navigate = useNavigate()
     return(
         <>
-        <NavBar />
+        <NavBar currentUser={currentUser} />
         <div className="signup-form">
         <h2>⁜ Sign Up ⁜</h2>
             <form onSubmit={(e)=>{
                 handleSubmit(e)
-                // navigate('/messages')
+                navigate('/login')
             }}>
                 <label>Enter your Username</label>
                 <input  onChange={handleChange} type="text" name="full_name" placeholder="Username" /><br/>
