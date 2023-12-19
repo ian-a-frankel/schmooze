@@ -17,7 +17,7 @@ function Message({currentUser, URL={URL}}) {
     }, [])
     
     const chatbox = messages.map((msg) => {
-        return <ChatBox key={msg.id} msg={msg} />
+        return <ChatBox key={msg.id} msg={msg} currentUser={currentUser} />
     })
 
     return(

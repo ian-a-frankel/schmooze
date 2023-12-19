@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar";
 import Search from "../components/Search";
 import AddUser from "../components/AddUser";
 import RemoveUser from "../components/RemoveUser";
+import {useNavigate} from "react-router-dom"
 
 function Create({currentUser}) {
 
@@ -15,6 +16,13 @@ function Create({currentUser}) {
     const [chatName, setChatName] = useState('')
     const [allConversations, setAllConversations] = useState([])
     const [conversationID, setConversationID] = useState(0)
+    const [submittedForm, setSubmittedForm] = useState(false)
+
+    const navigate = useNavigate()
+
+    if(submittedForm){
+        navigate('/')
+    }
 
     const addableMembers = allUsers.filter(user => {
         return user.full_name.toUpperCase().includes(nameSearchText.toUpperCase())}).filter(user => {
@@ -87,15 +95,6 @@ function Create({currentUser}) {
 
     }
 
-//       function handleInput(e) {
-//     const {name, value} = e.target
-//     if (name === "year_release") {
-//       setNewMovie({...newMovie, [name]: Number(value)})
-//     } else {
-//     setNewMovie({...newMovie, [name]: value})
-//     }
-//   }
-
     const displayAddUsers = addableMembers.map(user => {
         return <AddUser key={user.id} user={user} handleAdd={handleAdd}  setTargetUser={setTargetUser}/>
     })
@@ -107,7 +106,8 @@ function Create({currentUser}) {
     <NavBar />
         <div className="create" >
             <form className="create" onSubmit={e => {e.preventDefault()
-            handleSubmit()}}>
+            handleSubmit()
+            setSubmittedForm(true)}}>
                 <Search setNameSearchText={setNameSearchText} />
                 {displayRemove}
                 <button type="submit">Create Chat With Selected Users</button>
