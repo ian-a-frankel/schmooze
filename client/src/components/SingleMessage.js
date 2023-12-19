@@ -1,6 +1,8 @@
 
 function SingleMessage({msg}) {
 
+    console.log(msg)
+
     return(
         <div className="message-box">
 

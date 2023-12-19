@@ -94,7 +94,7 @@ class Messages(Resource):
             "user": author.to_dict()
         }
         ####### I have changed here
-        # socketio.emit('message', result, broadcast=True)
+        socketio.emit('message', result)
         return make_response(result, 201)
     
 class MessagesById(Resource):
