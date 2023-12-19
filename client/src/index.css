@@ -10,3 +10,151 @@
   padding: 10px;
   border: 1px solid #ccc;
 }
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  max-width: fit-content;
+}
+/* Home Page CSS */
+#Home {
+  background-color: #f7f5f2;
+  color: #333;
+  font-family: 'Georgia', serif;
+  padding: 30px;
+  text-align: center;
+}
+
+
+img {
+  width: 100%; /* Set the width to 100% of the container */
+  height: auto; /* Maintain the aspect ratio of the image */
+  margin: auto; /* Center the image */
+  block-size: auto;
+}
+
+p {
+  color: black; /* Change the color of the text */
+  font-size: 40px; /* Change the font size of the text */
+  font-family: "Rubik Doodle Shadow"; /* Change the font family of the text */
+  padding-top: 40px;
+  font-style: oblique 23deg;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.signup-buttons {
+  padding: 0%;
+  text-align: center; 
+  margin-top: 0px;
+  margin-bottom: 9%;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 30px;
+  font-weight: 100;
+  font: georgia, xx-large
+
+}
+
+.signup-buttons button {
+  background-color: #68f1f1;
+  box-shadow: 0 0 10px rgb(62, 225, 44);
+  transition: background-color 0.3s ease;
+  font-size: large;
+}
+
+.signup-buttons a {
+  text-decoration: none;
+  color: rgb(1, 4, 5);
+  
+}
+
+.signup-buttons a:hover {
+  text-decoration: underline;
+  
+
+}
+
+.signup-buttons p {
+  margin: 0; 
+  padding-top: 2px;
+  padding-bottom: 3px;
+  color: rgb(4, 1, 1);
+  font-weight: bold;
+  font-size: 23px;
+  text-align: center;
+
+
+}
+
+.signup-now {
+  padding: 0%;
+  text-align: center; 
+  margin-top: 0px;
+  margin-bottom: 9%;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 30px;
+  font-weight: 100;
+  font: georgia, xx-large
+  
+
+}
+
+.signup-now p {
+  margin: 0; 
+  padding-top:0%;
+  padding-bottom: 4px;
+  color: rgb(4, 1, 1);
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+
+}
+
+.signup-now button {
+  background-color: #68f1f1;
+  box-shadow: 0 0 10px rgb(62, 225, 44);
+  transition: background-color 0.3s ease;
+  font-size: large;
+  
+}
+
+.signup-now button:hover {
+  background-color: #cfea1e;
+  box-shadow: 0 0 12px rgb(106, 224, 242);
+
+}
+
+/* NavBar.css */
+
+.navbar {
+  display: flex;
+  background-color: #39e7f4;
+  padding: 0 20px;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+}
+
+.navbar a {
+  margin: 0 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+  color: #66a1cc;
+}
+
+.logo {
+  width: 200px;
+  height: 200px;
+  padding-bottom: 0px;
+
+}
