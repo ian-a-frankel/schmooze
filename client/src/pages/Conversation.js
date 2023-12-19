@@ -6,17 +6,18 @@ import NavBar from "../components/NavBar";
 function Conversation({currentUser}) {
 
     const params = useParams()
-    const id = params.id
+    const conv_id = params.id
+    console.log(conv_id)
     
     const [messages, setmessages] = useState([])
     
     useEffect(() => {
         if(currentUser) {
-        fetch(`/api/users/${currentUser.id}/conversations/${id}`)
+        fetch(`/api/conversations/${conv_id}`)
         .then(resp => resp.json())
         .then(data => {
             console.log(data)
-            setmessages(data)
+            setmessages(data['messages'])
         })
     }
     }, [currentUser])

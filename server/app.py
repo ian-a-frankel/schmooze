@@ -45,9 +45,8 @@ class Users(Resource):
     
 class ConversationById(Resource):
     def get(self, id):
-        if session['user_id']==id:
-            conversation = Conversation.query.filter_by(id=id).first().to_dict()
-            return make_response(jsonify(conversation), 200)
+        conversation = Conversation.query.filter_by(id=id).first().to_dict()
+        return make_response(jsonify(conversation), 200)
     
 class Conversations(Resource):
     def post(self):
