@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import SingleMessage from "../components/SingleMessage";
 import NavBar from "../components/NavBar";
 
 
 function Conversation({currentUser}) {
+
+    const bottomRef = useRef(null)
 
     const params = useParams()
     const conv_id = params.id
@@ -49,7 +51,11 @@ function Conversation({currentUser}) {
             setmessages([...messages, newMes])
         })
         }
-      
+
+    useEffect(()=> {
+        bottomRef.current?.scrollIntoView();
+    }, [messages])
+    
     
     const chatbox = messages.map((msg) => {
         return <SingleMessage key={msg.id} msg={msg} />
@@ -72,7 +78,7 @@ function Conversation({currentUser}) {
                     value={newMessage.text} // <-- Update this line
                     onChange={(e) => setNewMessage({ ...newMessage, text: e.target.value, user_id: userId})}
                 />
-                <button type="submit">Send</button>
+                <button ref={bottomRef} type="submit">Send</button>
                 </form>
         </div>
         </>
@@ -92,7 +98,7 @@ export default Conversation;
 // function Conversation({ currentUser }) {
 //   const params = useParams();
 //   const conv_id = params.id;
-  
+
 //   const [user_id, setUserId]=useState(1)
 //   const [socket, setSocket] = useState(null);
 //   const [newMessage, setNewMessage] = useState({
