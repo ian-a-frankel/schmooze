@@ -2,7 +2,7 @@ import NavBar from "../components/NavBar";
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 
-function Login({attemptLogin}) {
+function Login({attemptLogin, currentUser}) {
     const [userInfo, setUserInfo]=useState({
         full_name:'',
         password: ''
@@ -21,12 +21,15 @@ function Login({attemptLogin}) {
     const navigate = useNavigate()
     return(
         <>
-        <NavBar />
+        <NavBar currentUser={currentUser} />
         <div className="login-form">
         <h2>⁜ Log In ⁜</h2>
             <form onSubmit={(e)=>{
                 handleSubmit(e)
-                navigate('/listOfChats')
+                if (currentUser) {
+                    navigate('/listOfChats')
+                }
+                
             }}>
             <label>Username</label>
             <input onChange={handleChange} type="text" name="full_name" placeholder="Username" /><br/>
