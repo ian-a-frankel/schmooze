@@ -110,7 +110,9 @@ function App() {
   
   return(
     <>
-    <header>Schmooze</header>
+    <header>
+    <img class="logo" src="/logo.png" alt="Schmooze"/>
+    </header>
     <RouterProvider router={router}/>
     {/* <NavBar /> */}
     
