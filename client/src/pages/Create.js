@@ -93,7 +93,7 @@ function Create({currentUser}) {
                 })
                 .then(resp => resp.json())
                 .then(data => {console.log(data)
-                    if (currentUser.id == data.user_id) {
+                    if (currentUser.id === data.user_id) {
                         navigate(`/conversations/${data.conversation_id}`)
                     }
                 })
