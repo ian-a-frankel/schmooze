@@ -15,23 +15,22 @@ function Create({currentUser}) {
 
     const [chatName, setChatName] = useState('')
     const [allConversations, setAllConversations] = useState([])
-    const [conversationID, setConversationID] = useState(0)
-    const [submittedForm, setSubmittedForm] = useState(false)
+    const [conversationID, setConversationID] = useState(null)
+
+
+    let convoIDglobal
 
     const navigate = useNavigate()
 
-    if(submittedForm){
-        navigate('/')
-    }
-
+    
     const addableMembers = allUsers.filter(user => {
         return user.full_name.toUpperCase().includes(nameSearchText.toUpperCase())}).filter(user => {
             return !deleteableMembers.includes(user)
-        
+            
     })
-
+    
     useEffect(() => {
-
+        
         if (currentUser) {
             fetch('/api/users')
             .then(resp => resp.json())
@@ -42,8 +41,8 @@ function Create({currentUser}) {
             })
         }
     }, [currentUser])
-
-
+    
+    
     
     function handleAdd(e) {
         e.preventDefault()
@@ -61,7 +60,7 @@ function Create({currentUser}) {
         })
         setDeleteableMembers(newDeleteable)
     }
-
+    
     function handleSubmit() {
         // e.preventDefault()
         fetch(`/api/conversations`, {
@@ -77,7 +76,7 @@ function Create({currentUser}) {
         .then(resp => resp.json())
         .then(conv => {
             console.log(conv.id)
-
+            convoIDglobal = conv.id
             setConversationID(conv.id)
             const convoID = conv.id;
             [...deleteableMembers, currentUser].forEach(dm => {
@@ -92,10 +91,18 @@ function Create({currentUser}) {
                         conversation_id: convoID
                     })
                 })
+                .then(resp => resp.json())
+                .then(data => {console.log(data)
+                    if (currentUser.id == data.user_id) {
+                        navigate(`/conversations/${data.conversation_id}`)
+                    }
+                })
             })
         })
-
+        
     }
+
+    
 
     const displayAddUsers = addableMembers.map(user => {
         return <AddUser key={user.id} user={user} handleAdd={handleAdd}  setTargetUser={setTargetUser}/>
@@ -103,13 +110,13 @@ function Create({currentUser}) {
     const displayRemove = deleteableMembers.map(user => {
         return <RemoveUser key={user.id} user={user} handleRemove={handleRemove} setTargetUser={setTargetUser} />
     })
-
+    
     return(<>
     <NavBar />
         <div className="create" >
             <form className="create" onSubmit={e => {e.preventDefault()
             handleSubmit()
-            setSubmittedForm(true)}}>
+            }}>
                 <Search setNameSearchText={setNameSearchText} />
                 {displayRemove}
                 <button type="submit">Create Chat With Selected Users</button>
