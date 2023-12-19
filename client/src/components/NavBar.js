@@ -1,17 +1,39 @@
+import { useState } from "react";
 import {NavLink} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
-function NavBar() {
+function NavBar({currentUser}) {
+
+    const navigate = useNavigate()
+
+    function handleDropdown(e) {
+        if (e.target.value === 'newchat') {
+            navigate('/create')
+        }
+        if (e.target.value === 'chatlist') {
+            navigate('/listOfChats')
+        }
+    }
+
     return (
         <nav className="navbar">
             <NavLink to="/">Home</NavLink>
 
-            <NavLink to="/create">New Chat</NavLink>
+            {currentUser? null: <NavLink to='/signup'>Sign Up</NavLink>}
 
-            <NavLink to="/login">Login</NavLink>
+            {currentUser? null : <NavLink to="/login">Login</NavLink>}
 
-            <NavLink to="/listOfChats">List Of Chats</NavLink>
+            {currentUser? <select onChange={handleDropdown}>
+                <option>Chat Menu</option>
+                <option value='chatlist' name='chatlist'>List Of Chats</option>
+                <option value='newchat' name='newchat'>New Chat</option>
+            </select> : null}
 
-            <NavLink to="/logout">LogOut</NavLink>
+            {/* {currentUser?<NavLink to="/create">New Chat</NavLink>: null}
+
+            {currentUser?<NavLink to="/listOfChats">List Of Chats</NavLink>: null} */}
+
+            {currentUser?<NavLink to="/logout">LogOut</NavLink>:null}
 
         </nav>
     )
@@ -19,3 +41,8 @@ function NavBar() {
 
 export default NavBar;
 
+{/* <select onChange={toSetDropDown} name="sort" id="sort"> 
+<option value="none" name="none" >None</option> 
+<option value="byname" name="byname" >Name</option> 
+<option value="byyear" name="byyear" >Released Year</option> 
+</select> */}
