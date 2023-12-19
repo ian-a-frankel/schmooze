@@ -70,12 +70,9 @@ function Create({currentUser}) {
         return <RemoveUser key={user.id} user={user} handleRemove={handleRemove} setTargetUser={setTargetUser} />
     })
 
-
-
     return(<>
     <NavBar />
         <div className="create" >
-
             <form className="create">
                 <Search setNameSearchText={setNameSearchText} />
                 {displayRemove}
