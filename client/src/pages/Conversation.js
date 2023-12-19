@@ -9,7 +9,7 @@ let socket;
 function Conversation({currentUser}) {
     const bottomRef = useRef(null)
 
-    const bottomRef = useRef(null)
+
 
     const params = useParams()
     const conv_id = params.id
