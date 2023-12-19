@@ -26,7 +26,10 @@ function Login({attemptLogin, currentUser}) {
         <h2>⁜ Log In ⁜</h2>
             <form onSubmit={(e)=>{
                 handleSubmit(e)
-                navigate('/listOfChats')
+                if (currentUser) {
+                    navigate('/listOfChats')
+                }
+                
             }}>
             <label>Username</label>
             <input onChange={handleChange} type="text" name="full_name" placeholder="Username" /><br/>
