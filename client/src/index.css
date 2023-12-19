@@ -1,7 +1,496 @@
 :root {
-  --bg: #282c34;
-  --header: #fff;
-  --link: #61dafb;
-  --text: hsla(0, 0%, 100%, 0.88);
+    --bg: #020303;
+    --header: #fff;
+    --link: #61dafb;
+    --text: hsla(0, 50%, 100%, 0.88);
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    max-width: fit-content;
 }
 
+#Home {
+    background-color: #f7f5f2;
+    color: #333;
+    font-family: 'Georgia', serif;
+    padding: 30px;
+    text-align: center;
+}
+
+#Home p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+#Home img {
+    max-width: 100%;
+    height: 40%;
+    margin-bottom: 20px;
+}
+
+p {
+    color: black; /* Change the color of the text */
+    font-size: 20px; /* Change the font size of the text */
+    font-style: oblique 23deg;
+    font-weight: bold;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.signup-form {
+    max-width: 300px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.signup-form h2 {
+    text-align: center;
+}
+
+.signup-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-form label {
+    margin-top: 10px;
+}
+
+.signup-form input {
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+.signup-form button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signup-form button:hover {
+    background-color: #45a049;
+}
+
+.signup-buttons {
+    padding: 0%;
+    text-align: center; 
+    margin-top: 0px;
+    margin-bottom: 9%;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 30px;
+    font-weight: 100;
+    font: georgia, xx-large
+
+}
+
+.signup-buttons button {
+    background-color: #68f1f1;
+    box-shadow: 0 0 10px rgb(62, 225, 44);
+    transition: background-color 0.3s ease;
+    font-size: large;
+}
+
+.signup-buttons a {
+    text-decoration: none;
+    color: rgb(1, 4, 5);
+    
+}
+
+.signup-buttons a:hover {
+    text-decoration: underline;
+    
+
+}
+
+.signup-buttons p {
+    margin: 0; 
+    padding-top: 2px;
+    padding-bottom: 3px;
+    color: rgb(4, 1, 1);
+    font-weight: bold;
+    font-size: 23px;
+    text-align: center;
+
+
+}
+
+.signup-now {
+    padding: 0%;
+    text-align: center; 
+    margin-top: 0px;
+    margin-bottom: 9%;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 30px;
+    font-weight: 100;
+    font: georgia, xx-large
+    
+
+}
+
+.signup-now p {
+    margin: 0; 
+    padding-top: 4%;
+    padding-bottom: 4px;
+    color: rgb(4, 1, 1);
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    font: georgia, xx-large
+}
+
+.signup-now button {
+    background-color: #68f1f1;
+    box-shadow: 0 0 10px rgb(62, 225, 44);
+    transition: background-color 0.3s ease;
+    font-size: large;
+    
+}
+
+.signup-now button:hover {
+    background-color: #cfea1e;
+    box-shadow: 0 0 12px rgb(106, 224, 242);
+
+}
+
+.arrow-container {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    height: 10vh;  /* Adjust the height based on your preference */
+}
+
+.centered-content {
+    text-align: center;
+
+}
+
+.centered-content img {
+    width: 200px;
+    height: 200px; /* Maintain aspect ratio */
+    margin-right: 10px; /* Adjust the margin as needed */
+
+}
+
+.arrow-image {
+    width:20px;
+    height: auto;
+    margin-right: 10px;
+    transform: rotate(45deg);
+}
+
+.message-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f7f7f7;
+}
+
+.message-box h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    /* Highlighted section */
+    color: blue;
+}
+
+.message-box img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.message-box h4 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 3px;
+    /* Highlighted section */
+    color: green;
+}
+.message-box h5 {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 5px;
+    /* Highlighted section */
+    color: orange;
+}
+
+.message-box select {
+    margin-top: 10px;
+}
+
+.message-box button {
+    padding: 5px 10px;
+    background-color: #ccc;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.message-box button:hover {
+    background-color: #999;
+}
+
+.login-form {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.login-form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #555;
+}
+
+/* Search.css */
+
+.searchbar {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.searchbar label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.searchbar input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* NavBar.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #1fccd9;
+    padding: 15px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    color: #66a1cc;
+}
+
+/* Home.css */
+
+#welcome {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#welcome h1 {
+    color: #3498db;
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+#welcome p {
+    color: #555;
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.sign-in {
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.sign-in a {
+    color: #e74c3c;
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+.sign-in:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -15px;
+    width: calc(100% + 30px);
+    height: 40px;
+    background-color: black;
+    border-radius: 20px;
+}
+.sign-in a:hover {
+    color: #c0392b;
+    text-decoration: underline;
+}
+
+
+.create {
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.create form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create label {
+    font-size: 1.2em;
+    margin-top: 15px;
+    color: #3498db; /* Highlight color */
+}
+
+.create input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.create button {
+    background-color: #3498db;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.create button:hover {
+    background-color: #2980b9; /* Darker shade on hover */
+}
+/* Create.css */
+
+.create {
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.create form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create label {
+    font-size: 1.2em;
+    margin-top: 15px;
+    color: #3498db; /* Highlight color */
+}
+
+.create input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.create button {
+    background-color: #3498db;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.create button:hover {
+    background-color: #2980b9; /* Darker shade on hover */
+}
+
+.logo {
+    width: 200px;
+    height: 200px;
+    padding-bottom: 0px;
+
+}
+
+.img {
+    width: 200px;
+    height: 200px;
+    padding-bottom: 0px;
+
+}

@@ -1,12 +1,17 @@
+import React from 'react';
+import "../index.css";
+import { Link } from 'react-router-dom';
+
 function NavBar() {
     return (
-        <nav className="navbar">
-            <a href="#Home">Home</a>
-            <a href="#Message">Message</a>
-            <a href="#Create">Create</a>
-            {/* <a href="#LoginSignup">{isLogin? "Log Out": "Log In or Sign Up" }</a> */}
+        <nav>
+            <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/signup">Sign Up</Link></li>
+                {/* Add other navigation links */}
+            </ul>
         </nav>
-    )
-}
+    );
+};
 
 export default NavBar;

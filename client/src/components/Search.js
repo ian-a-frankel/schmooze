@@ -1,4 +1,7 @@
 import User from "./User";
+import React from "react";
+ 
+
 
 
 function Search() {

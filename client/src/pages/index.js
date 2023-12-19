@@ -1,52 +1,56 @@
+const http = require('http');
 const express = require('express');
+const socketio = require('socket.io');
 const cors = require('cors');
 
-const authRoutes = require("./routes/auth.js");
+const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
+
+const router = require('./router');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-
-require('dotenv').config();
-
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const messagingServiceSid = process.env.TWILIO_MESSAGING_SERVICE_SID;
-const twilioClient = require('twilio')(accountSid, authToken);
+const server = "http://127.0.0.1:5555";
+const io = socketio(server);
 
 app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded());
+app.use(router);
 
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
+io.on('connect', (socket) => {
+    socket.on('join', ({ name, room }, callback) => {
+        const { error, user } = addUser({ id: socket.id, name, room });
+        if(error) return callback(error);
+
+        socket.join(user.room);
+
+        socket.join(user.room);
+
+        socket.emit('message', { user: 'admin', text: `${user.name}, welcome to room ${user.room}.`});
+
+        io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
+
+        callback();
+    });
+
+    socket.on('sendMessage', (message, callback) => {
+        const user = getUser(socket.id);
+
+        io.to(user.room).emit('message', { user: user.name, text: message });
+
+        callback();
+    });
+
+
+    socket.on('disconnect', () => {
+        const user = removeUser(socket.id);
+
+        if(user) {
+            io.to(user.room).emit('message', { user: 'Admin', text: `${user.name} has left.` });
+            io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room)});
+        }
+    })
 });
 
-app.post('/', (req, res) => {
-    const { message, user: sender, type, members } = req.body;
+server.listen(process.env.PORT || 5555, () => console.log(`Server has started.`));
 
-    if(type === 'message.new') {
-        members
-            .filter((member) => member.user_id !== sender.id)
-            .forEach(({ user }) => {
-                if(!user.online) {
-                    twilioClient.messages.create({
-                        body: `You have a new message from ${message.user.fullName} - ${message.text}`,
-                        messagingServiceSid: messagingServiceSid,
-                        to: user.phoneNumber
-                    })
-                        .then(() => console.log('Message sent!'))
-                        .catch((err) => console.log(err));
-                }
-            })
 
-            return res.status(200).send('Message sent!');
-    }
-
-    return res.status(200).send('Not a new message request');
-});
-
-app.use('/auth', authRoutes);
-
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 export default index;
