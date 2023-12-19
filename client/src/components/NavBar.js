@@ -40,9 +40,3 @@ function NavBar({currentUser}) {
 }
 
 export default NavBar;
-
-{/* <select onChange={toSetDropDown} name="sort" id="sort"> 
-<option value="none" name="none" >None</option> 
-<option value="byname" name="byname" >Name</option> 
-<option value="byyear" name="byyear" >Released Year</option> 
-</select> */}
