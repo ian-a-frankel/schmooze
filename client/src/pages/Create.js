@@ -18,8 +18,6 @@ function Create({currentUser}) {
     const [conversationID, setConversationID] = useState(null)
 
 
-    let convoIDglobal
-
     const navigate = useNavigate()
 
     
@@ -101,8 +99,6 @@ function Create({currentUser}) {
         })
         
     }
-
-    
 
     const displayAddUsers = addableMembers.map(user => {
         return <AddUser key={user.id} user={user} handleAdd={handleAdd}  setTargetUser={setTargetUser}/>
