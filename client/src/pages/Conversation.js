@@ -63,7 +63,7 @@ function Conversation({currentUser}) {
 
     return(
         <>
-        <NavBar />
+        <NavBar currentUser={currentUser} />
         <div className="message">
             {chatbox}
             <form className="message-form" onSubmit={(e) => {

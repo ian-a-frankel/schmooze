@@ -6,9 +6,9 @@ import Message from "./Conversation";
 import {NavLink} from "react-router-dom"
 import NavBar from "../components/NavBar";
 
-function Home() {
+function Home({currentUser}) {
     return(<>
-    <NavBar />
+    <NavBar currentUser={currentUser} />
         <div id="Schmooze" className="home">
             <p>Elevate Your Communication Game with Ease . 
             <br/> 🌍︎🌐︎ Click to Sign Up with Schmooze 🌐︎🌍︎

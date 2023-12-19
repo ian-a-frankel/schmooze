@@ -74,7 +74,6 @@ function Create({currentUser}) {
         .then(resp => resp.json())
         .then(conv => {
             console.log(conv.id)
-            convoIDglobal = conv.id
             setConversationID(conv.id)
             const convoID = conv.id;
             [...deleteableMembers, currentUser].forEach(dm => {
@@ -108,7 +107,7 @@ function Create({currentUser}) {
     })
     
     return(<>
-    <NavBar />
+    <NavBar currentUser={currentUser} />
         <div className="create" >
             <form className="create" onSubmit={e => {e.preventDefault()
             handleSubmit()
