@@ -8,13 +8,15 @@ import NavBar from "../components/NavBar";
 
 function Home({currentUser}) {
     return(<>
+
+    <NavBar currentUser={currentUser} />
             
             
             <div class="image-container">
             <img  src="/home.svg" alt="Home"/>  
             </div>
 
-
+        <div>
             <img  src="/2.svg" alt="Home"/>
             <img  src="/3.svg" alt="Home"/>
             <img  src="/4.svg" alt="Home"/>
