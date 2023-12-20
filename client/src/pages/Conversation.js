@@ -116,7 +116,7 @@ function Conversation({currentUser}) {
                     placeholder="Type here"
                     onChange={(e) => setNewMessage({ ...newMessage, text: e.target.value})}
                 />
-                <button ref={bottomRef} type="submit">Send</button>
+                <button id='createchat' ref={bottomRef} type="submit">Send</button>
                 </form>
         </div>
         </>

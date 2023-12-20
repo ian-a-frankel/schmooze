@@ -169,3 +169,21 @@ img {
   height: 55px;
   border-radius: 50%;
 }
+
+#createchat {
+  position: static;
+  margin: 5%;
+}
+
+.user {
+  position: relative;
+  margin-bottom: 5%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 0.2fr 0.5fr 1fr;
+  column-gap: 5px;
+}
+
+#textmsg {
+  margin-left: 2%;
+}
