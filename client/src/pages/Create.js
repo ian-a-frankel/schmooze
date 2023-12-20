@@ -26,7 +26,7 @@ function Create({currentUser}) {
             return !deleteableMembers.includes(user)
             
     })
-    
+
     useEffect(() => {
         
         if (currentUser) {
@@ -39,9 +39,7 @@ function Create({currentUser}) {
             })
         }
     }, [currentUser])
-    
-    
-    
+
     function handleAdd(e) {
         e.preventDefault()
         const newDeleteable = [...deleteableMembers, targetUser]
@@ -49,8 +47,7 @@ function Create({currentUser}) {
         console.log(newDeleteable)
         
     }
-    
-    
+
     function handleRemove(e) {
         e.preventDefault()
         const newDeleteable = deleteableMembers.filter(user => {
@@ -58,7 +55,7 @@ function Create({currentUser}) {
         })
         setDeleteableMembers(newDeleteable)
     }
-    
+
     function handleSubmit() {
         // e.preventDefault()
         fetch(`/api/conversations`, {
@@ -96,7 +93,6 @@ function Create({currentUser}) {
                 })
             })
         })
-        
     }
 
     const displayAddUsers = addableMembers.map(user => {
@@ -105,7 +101,7 @@ function Create({currentUser}) {
     const displayRemove = deleteableMembers.map(user => {
         return <RemoveUser key={user.id} user={user} handleRemove={handleRemove} setTargetUser={setTargetUser} />
     })
-    
+
     return(<>
     <NavBar currentUser={currentUser} />
         <div className="create" >
