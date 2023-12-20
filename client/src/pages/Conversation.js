@@ -11,7 +11,6 @@ function Conversation({currentUser}) {
     const [ucs, setUcs] = useState([])
     const [currentUcid, setCurrentUcid] = useState(0)
 
-
     const params = useParams()
     const conv_id = params.id
     console.log(conv_id)

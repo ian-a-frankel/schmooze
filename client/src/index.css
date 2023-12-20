@@ -158,17 +158,14 @@ img {
 }
 
 .navbar a {
-  margin: 0 19px;
-  margin-left: auto;
+  margin: 0 5%;
   text-decoration: none;
-  padding-right: 200px;
-  padding-left: 200px;
   color: white;
-  font-family: Lato;
-  font-weight: bold;
-  font-size: 1.5rem;
+  font-size:120%;
   font-weight: bold;
   transition: color 0.3s ease-in-out;
+  padding-left: 5%;
+  padding-right: 15%;
 }
 
 .navbar a:hover {
@@ -176,9 +173,10 @@ img {
 }
 
 .logo {
-  width: 200px;
-  height: 200px;
-  padding-bottom: 0px;
+  width: 10%;
+  height: 10%;
+  padding-bottom: 0%;
+  padding-right: 0;
 
 }
 

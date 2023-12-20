@@ -20,6 +20,8 @@ function NavBar({currentUser}) {
             <NavLink to="/">Home</NavLink>
 
             {currentUser? null : <NavLink to="/login">Login</NavLink>}
+            
+            {currentUser? null: <NavLink to='/signup'>Sign Up</NavLink>}
 
             {currentUser? null: <NavLink to='/signup'>Sign Up</NavLink>}
 
