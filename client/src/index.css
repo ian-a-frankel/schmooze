@@ -180,7 +180,7 @@ img {
   margin-bottom: 5%;
   display: grid;
   align-items: center;
-  grid-template-columns: 0.1fr 0.3fr 1fr;
+  grid-template-columns: 0.1fr 0.2fr 1fr;
   column-gap: 5px;
 }
 
