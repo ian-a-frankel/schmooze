@@ -1,26 +1,31 @@
 import NavBar from "../components/NavBar";
 import { useNavigate } from "react-router-dom";
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import {NavLink} from "react-router-dom"
+import './Signup.css';
 
-function Signup({attemptSignup, currentUser}) {
-    const [userInfo, setUserInfo]=useState({
-        full_name:'',
+function Signup({ attemptSignup, currentUser }) {
+    const [userInfo, setUserInfo] = useState({
+        full_name: '',
         password: '',
-        image:''
-    })
+        image: ''
+    });
 
-    function handleChange(event) {
+    const handleChange = (event) => {
         setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
     }
 
-    function handleSubmit(e) {
-        e.preventDefault()
-        attemptSignup(userInfo)
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        attemptSignup(userInfo);
+        navigate('/login');
     }
 
-    const navigate = useNavigate()
-    return(
+    const navigate = useNavigate();
+
+    return (
         <>
+
         <NavBar currentUser={currentUser} />
         <div className="signup-form">
         <h2>⁜ Sign Up ⁜</h2>
@@ -34,12 +39,13 @@ function Signup({attemptSignup, currentUser}) {
                 <input onChange={handleChange} type="text" name="password" placeholder="Password" /><br/>
                 <label>Upload Avatar</label>
                 <input onChange={handleChange} type="text" name="image" placeholder="Image URL" /><br/>
-                <button type="submit">Sign Up</button>
+                <button id='createchat' type="submit">Sign Up</button>
             </form>
         
         </div>
+
         </>
-    )
+    );
 }
 
 export default Signup;
