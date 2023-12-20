@@ -184,6 +184,15 @@ img {
   column-gap: 5px;
 }
 
+.adduser {
+  position: relative;
+  margin-bottom: 5%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 0.5fr 1fr;
+  column-gap: 5px;
+}
+
 #textmsg {
   margin-left: 2%;
 }
