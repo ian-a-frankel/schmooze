@@ -23,12 +23,13 @@ def current_user():
 
 @socketio.on('message')
 def handle_message(data):
+    pass
     # Broadcast the received message to all connected clients
-    emit('message', data, broadcast=True)
+    # emit('message', data, broadcast=True)
 
 class Users(Resource):
     def get(self):
-        users = [user.to_dict() for user in User.query.all()]
+        users = [user.to_dict(rules = ('-password_hash',)) for user in User.query.all()]
         return make_response(jsonify(users), 200)
     
     def post(self):
@@ -93,8 +94,8 @@ class Messages(Resource):
             "conversation_id": new_message.conversation_id,
             "user": author.to_dict()
         }
-        ####### I have changed here
-        socketio.emit('message', result)
+        strid = str(new_message.conversation_id)
+        socketio.emit(f'message{strid}', result)
         return make_response(result, 201)
     
 class MessagesById(Resource):
@@ -148,6 +149,19 @@ def check_session():
 def logout():
     session.pop('user_id')
     return {}, 204
+
+@app.patch(URL_PREFIX + '/userConversations/<int:id>')
+def update_unread(id):
+    uc = db.session.get(UserConversation,id)
+    data = request.get_json()
+    if data['unread'] == -1:
+        setattr(uc, 'unread', 0)
+    else:
+        uc.unread += 1
+    db.session.add(uc)
+    db.session.commit()
+    return make_response(data, 201)
+
 
 # @app.get(URL_PREFIX + '/users/<int:u_id>/conversations/<int:c_id>')
 # def get_conv_with_user(u_id, c_id):

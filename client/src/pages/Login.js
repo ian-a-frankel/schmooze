@@ -43,6 +43,8 @@ function Login({attemptLogin, currentUser}) {
             <input className="UsernameSignUp" onChange={handleChange} type="text" name="full_name" placeholder="username goes here" /><br/>
             <label className="UsernameLabel">Password</label>
             <input className="PasswordSignUp" onChange={handleChange} type="text" name="password" placeholder="password goes here" /><br/>
+
+            <button id='createchat' type="submit">Log in</button>
             </form>
             <button className="login-button" onClick={handleSubmit}>Log In</button>
             <a className="signup-link" href="./Signup">Sign up here if you do not have an account</a>

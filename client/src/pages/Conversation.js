@@ -5,15 +5,19 @@ import NavBar from "../components/NavBar";
 import {io} from 'socket.io-client' 
 let socket;
 
-
 function Conversation({currentUser}) {
     const bottomRef = useRef(null)
+
+    const [ucs, setUcs] = useState([])
+    const [currentUcid, setCurrentUcid] = useState(0)
+
 
     const params = useParams()
     const conv_id = params.id
     console.log(conv_id)
     
-
+    
+    const [currentUsers, setCurrentUsers]=useState([])
     const [newMessage, setNewMessage]=useState({
         text : '',
         user: null,
@@ -25,15 +29,34 @@ function Conversation({currentUser}) {
     
     useEffect(() => {
         if(currentUser) {
-        fetch(`/api/conversations/${conv_id}`)
-        .then(resp => resp.json())
-        .then(data => {
-            console.log(data)
-            setmessages(data['messages'])
-            console.log(currentUser.full_name)
-            setNewMessage({ ...newMessage, user: currentUser, user_id: currentUser.id})
+            console.log(currentUser)
+            fetch(`/api/conversations/${conv_id}`)
+            .then(resp => resp.json())
+            .then(data => {
+                for (let uc of data['userConversations']) {
+                    if (uc.user_id === currentUser.id) {
+                        setCurrentUcid(uc.id)
+                        fetch(`/api/userConversations/${uc.id}`, {                            
+                            method: "PATCH",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Accept": "application/json"
+                            },
+                            body: JSON.stringify({unread: -1})
+                        })
+                        
+                    }
+                }
+                setmessages(data['messages'])
+                setCurrentUsers(data.userConversations.map(userConv => userConv.user.full_name))
+                setUcs(data['userConversations'])
+                console.log(currentUser.full_name)
+                setNewMessage({ ...newMessage, user: currentUser, user_id: currentUser.id})
+            })
 
-        })
+
+        
+            
     }
     }, [currentUser])
 
@@ -42,9 +65,19 @@ function Conversation({currentUser}) {
         // create websocket
         socket = io();
 
-        socket.on("message", (chat) => {
+        socket.on(`message${conv_id}`, (chat) => {
             console.log(chat)
             setmessages(messages => [...messages, chat])
+            console.log(currentUser)
+            fetch(`/api/userConversations/${currentUser.id}`, {                            
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({unread: -1})
+                }
+            )
         })
         // when component unmounts, disconnect
         return (() => {
@@ -64,9 +97,18 @@ function Conversation({currentUser}) {
         })
         .then(resp => resp.json())
         .then(data => {
-            console.log(data)
-            socket.emit("message", data);
-            console.log(newMessage)
+            for (let uc of ucs) {
+                if (uc.user_id !== currentUser.id) {
+                    fetch(`/api/userConversations/${uc.id}`, {                            
+                        method: "PATCH",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json"
+                        },
+                        body: JSON.stringify({unread: 1})
+                    })
+                }
+            }
         })
         
     }
@@ -89,7 +131,11 @@ function Conversation({currentUser}) {
         bottomRef.current?.scrollIntoView();
     }, [messages])
     
-
+    const userBox = currentUsers.map((user, index) => {
+        return (
+            <p key={index} style={{ margin: '4px ', fontWeight: 'bold' }}> {user} </p>
+        )
+    })
     
     const chatbox = msgarray().map((msg) => {
 
@@ -100,11 +146,19 @@ function Conversation({currentUser}) {
         <>
         <NavBar currentUser={currentUser} />
         <div className="message">
+            <div id ='chat-box'>
             {chatbox}
+            </div>
+            <div id="user-box">
+                <p>Schmoozers: </p>
+            {userBox}
+            </div>
+            </div>
             <form className="message-form" onSubmit={(e) => {
                 e.preventDefault()
                 handleAddNewMessage();
-                console.log(newMessage);
+                e.target.reset();
+                setNewMessage({...newMessage, text: ''})
 
             }}>
                 <label>New Message</label>
@@ -114,9 +168,8 @@ function Conversation({currentUser}) {
                     placeholder="Type here"
                     onChange={(e) => setNewMessage({ ...newMessage, text: e.target.value})}
                 />
-                <button ref={bottomRef} type="submit">Send</button>
+                <button id='createchat' ref={bottomRef} type="submit">Send</button>
                 </form>
-        </div>
         </>
     )
 }

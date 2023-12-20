@@ -24,7 +24,7 @@ class User(db.Model, SerializerMixin):
     serialize_rules =('-messages','-userConversations.user',)
     id = db.Column(db.Integer, primary_key=True)
     full_name=db.Column(db.String, nullable=False)
-    image=db.Column(db.String, default='default.jpeg')
+    image=db.Column(db.String, default='https://i.imgur.com/hFR2iGo.jpg')
     occupation=db.Column(db.String, nullable=True)
     password_hash = db.Column(db.String, nullable=True)
     messages=db.relationship('Message', back_populates='user')
@@ -48,6 +48,8 @@ class UserConversation (db.Model, SerializerMixin):
     __tablename__='userConversation_table'
     serialize_rules =('-user.userConversations', '-conversation.userConversations')
     id = db.Column(db.Integer, primary_key=True)
+    
+    unread = db.Column(db.Integer, default=0)
     
     user_id = db.Column(db.Integer, db.ForeignKey('users_table.id'), nullable=False)
     conversation_id = db.Column(db.Integer, db.ForeignKey('conversations_table.id'), nullable=False)

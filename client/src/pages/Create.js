@@ -114,7 +114,7 @@ function Create({currentUser}) {
             }}>
                 <Search setNameSearchText={setNameSearchText} />
                 {displayRemove}
-                <button type="submit">Create Chat With Selected Users</button>
+                <button id='createchat' type="submit">Create Chat With Selected Users</button>
                 {displayAddUsers}
                 <label>Name: </label>
                 <input onChange={(e)=>{setChatName(e.target.value)}}  type="text" name="create" placeholder="Optional" />
