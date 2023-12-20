@@ -49,7 +49,7 @@ class UserConversation (db.Model, SerializerMixin):
     serialize_rules =('-user.userConversations', '-conversation.userConversations')
     id = db.Column(db.Integer, primary_key=True)
     
-    unread = db.Column(db.Boolean, default=False)
+    unread = db.Column(db.Integer, default=0)
     
     user_id = db.Column(db.Integer, db.ForeignKey('users_table.id'), nullable=False)
     conversation_id = db.Column(db.Integer, db.ForeignKey('conversations_table.id'), nullable=False)

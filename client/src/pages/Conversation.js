@@ -5,11 +5,10 @@ import NavBar from "../components/NavBar";
 import {io} from 'socket.io-client' 
 let socket;
 
-
 function Conversation({currentUser}) {
     const bottomRef = useRef(null)
-
-
+    const [ucs, setUcs] = useState([])
+    const [currentUcid, setCurrentUcid] = useState(0)
 
     const params = useParams()
     const conv_id = params.id
@@ -27,15 +26,32 @@ function Conversation({currentUser}) {
     
     useEffect(() => {
         if(currentUser) {
-        fetch(`/api/conversations/${conv_id}`)
-        .then(resp => resp.json())
-        .then(data => {
-            console.log(data)
-            setmessages(data['messages'])
-            console.log(currentUser.full_name)
-            setNewMessage({ ...newMessage, user: currentUser, user_id: currentUser.id})
+            console.log(currentUser)
+            fetch(`/api/conversations/${conv_id}`)
+            .then(resp => resp.json())
+            .then(data => {
+                for (let uc of data['userConversations']) {
+                    if (uc.user_id === currentUser.id) {
+                        setCurrentUcid(uc.id)
+                        fetch(`/api/userConversations/${uc.id}`, {                            
+                            method: "PATCH",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Accept": "application/json"
+                            },
+                            body: JSON.stringify({unread: -1})
+                        })
+                        
+                    }
+                }
+                setmessages(data['messages'])
+                setUcs(data['userConversations'])
+                console.log(currentUser.full_name)
+                setNewMessage({ ...newMessage, user: currentUser, user_id: currentUser.id})
+            })
 
-        })
+        
+            
     }
     }, [currentUser])
 
@@ -47,6 +63,16 @@ function Conversation({currentUser}) {
         socket.on(`message${conv_id}`, (chat) => {
             console.log(chat)
             setmessages(messages => [...messages, chat])
+            console.log(currentUser)
+            fetch(`/api/userConversations/${currentUser.id}`, {                            
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({unread: -1})
+                }
+            )
         })
         // when component unmounts, disconnect
         return (() => {
@@ -66,9 +92,18 @@ function Conversation({currentUser}) {
         })
         .then(resp => resp.json())
         .then(data => {
-            console.log(data)
-            // socket.emit("message", data);
-            console.log(newMessage)
+            for (let uc of ucs) {
+                if (uc.user_id !== currentUser.id) {
+                    fetch(`/api/userConversations/${uc.id}`, {                            
+                        method: "PATCH",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json"
+                        },
+                        body: JSON.stringify({unread: 1})
+                    })
+                }
+            }
         })
         
     }

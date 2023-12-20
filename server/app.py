@@ -29,7 +29,7 @@ def handle_message(data):
 
 class Users(Resource):
     def get(self):
-        users = [user.to_dict() for user in User.query.all()]
+        users = [user.to_dict(rules = ('-password_hash',)) for user in User.query.all()]
         return make_response(jsonify(users), 200)
     
     def post(self):
@@ -95,7 +95,6 @@ class Messages(Resource):
             "user": author.to_dict()
         }
         strid = str(new_message.conversation_id)
-        ####### I have changed here
         socketio.emit(f'message{strid}', result)
         return make_response(result, 201)
     
@@ -116,14 +115,6 @@ class UsersConversations(Resource):
     def get(self, id):
         user = db.session.get(User, id).to_dict()
         return make_response(jsonify(user['userConversations']), 200)
-    
-    def patch(self, id):
-        uc = db.session.get(UserConversation,id)
-        data = request.get_json()
-        setattr(uc, 'unread', data['unread'])
-        db.session.add(uc)
-        db.session.commit()
-        
 
 # @app.get(URL_PREFIX + '/users/<int:user_id>/conversations/<int:conv_id')
 # def get_info(user_id, conv_id):
@@ -158,6 +149,19 @@ def check_session():
 def logout():
     session.pop('user_id')
     return {}, 204
+
+@app.patch(URL_PREFIX + '/userConversations/<int:id>')
+def update_unread(id):
+    uc = db.session.get(UserConversation,id)
+    data = request.get_json()
+    if data['unread'] == -1:
+        setattr(uc, 'unread', 0)
+    else:
+        uc.unread += 1
+    db.session.add(uc)
+    db.session.commit()
+    return make_response(data, 201)
+
 
 # @app.get(URL_PREFIX + '/users/<int:u_id>/conversations/<int:c_id>')
 # def get_conv_with_user(u_id, c_id):
