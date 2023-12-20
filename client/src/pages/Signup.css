@@ -1,0 +1,174 @@
+html, body {
+    font-family: 'Lobster', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+#root {
+    height: 100vh;
+}
+
+* {
+box-sizing: border-box;
+}
+
+.signupOuterContainer {
+display: flex;
+justify-content: center;
+width: 100%;
+text-align: center;
+height: 100vh;
+align-items: center;
+box-sizing: border-box;
+}
+
+.signupInnerContainer {
+width:100%;
+height: 100%;
+background-image: url('/public/background.svg');  /* Replace with the actual path to your image */
+background-size: cover;  /* Adjust based on your preference */
+background-position: center;  /* Adjust based on your preference */
+padding: 20px;  /* Add padding for better aesthetics */
+border-radius: 10px;  /* Add border-radius for rounded corners */
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Add a subtle box shadow for depth */
+}
+
+.input {
+border-radius: 0;
+padding: 15px 20px;
+width: 100%;
+}
+.heading {
+color: white;
+font-size: 100px;
+padding-bottom: 20px;
+margin-bottom: 30px;
+margin-top: 30px;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+text-align: center;
+
+}
+
+
+
+.subHeading {
+color: white;
+margin-bottom: -5%;
+font-size: 2em;
+padding-bottom: 10px;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+text-align: center;
+padding-top: 0%;
+padding-bottom: 0%;
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+.signupOuterContainer {
+    height: 100%;
+}
+
+.signupInnerContainer {
+    width: 90%;
+}
+
+}
+
+
+.signupInnerContainer button{
+position: flex;
+bottom: -10%; /* Adjust the distance from the bottom as needed */
+left: 920px; /* Adjust the distance from the right as needed */
+padding: 5px;
+border: none;
+cursor: pointer;
+background-color: #68f1f1;
+box-shadow: 0 0 10px rgb(62, 225, 44);
+transition: color 0.3s ease-in-out;
+font-size: 22px;
+text-decoration: none;
+color: rgb(1, 4, 5);
+font-family: lobster;
+
+}
+.signupInnerContainer a:hover {
+text-decoration: underline;
+
+}
+
+.joinInput {
+display: flex;
+margin : 50px;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: -30px;
+margin-top: 18px;
+width: 20%;
+font-family: 'Lobster', italic;
+font-size: 23px;
+text-align: center;
+}
+
+.joinInput1{
+display: flex;
+margin : 18px;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 0px;
+margin-top: 0px;
+width: 20%;
+font-family: 'Lobster', italic;
+font-size: 23px;
+text-align: center;
+}
+.joinInput2{
+display: flex;
+margin : 50px;
+margin-left: auto;
+margin-right: auto;
+margin-top: 0px;
+width: 20%;
+font-family: 'Lobster', italic;
+font-size: 23px;
+text-align: center;
+}
+
+.label {
+font-family: 'Lato', cursive;
+padding-top: 160px;
+margin-left: auto;
+margin-right: auto;
+padding-left: 0%;
+margin-bottom: 0px;
+font-size: 22px;
+color: white;
+
+}
+
+.label1 {
+font-family: 'Lato', cursive;
+padding-top: 10px;
+margin-left: auto;
+margin-right: auto;
+padding-left: 0%;
+margin-top: 5px;
+margin-bottom: 0px;
+font-size: 22px;
+color: white;
+text-align: center;
+}
+
+.label2 {
+    font-family: 'Lato', cursive;
+    padding-left: 0%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    }
+
+
+

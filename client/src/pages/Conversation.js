@@ -7,8 +7,10 @@ let socket;
 
 function Conversation({currentUser}) {
     const bottomRef = useRef(null)
+
     const [ucs, setUcs] = useState([])
     const [currentUcid, setCurrentUcid] = useState(0)
+
 
     const params = useParams()
     const conv_id = params.id

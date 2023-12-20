@@ -1,0 +1,144 @@
+/* Login.css */
+:root {
+    --bg: #282c34;
+    --header: #fff;
+    --link: #61dafb;
+    --text: hsla(0, 0%, 100%, 0.88);
+}
+
+body, html {
+margin: 0;
+padding: 0;
+height: 100%;
+
+}
+
+.login-form {
+height: 100%;
+background-image: url('/public/loginBack.svg');  /* Replace with the actual path to your image */
+padding: 20px;  /* Add padding for better aesthetics */
+width:100%;
+padding-top: 10%;
+background-size: cover;  /* Adjust based on your preference */
+background-position: center;  /* Adjust based on your preference */
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Add a subtle box shadow for depth */
+}
+
+.login-form p {
+margin-bottom: 0%;
+margin-top: -3%;
+margin-left: 66%;
+padding-top: 0%;
+color: white;
+text-shadow: 2px 2px 4px rgba(232, 69, 132, 0.5); /* Neon glow effect */
+font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.login-form h2 {
+margin-bottom: 5%;
+margin-top: 40px;
+margin-left: 1300px;
+color: white;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Neon glow effect */
+font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.login-form h1 {
+margin-bottom: 5%;
+margin-top: -3%;
+margin-left: 48%;
+margin-right: 3% ;
+text-align: center;
+color: white;
+text-shadow: 2px 2px 4px rgb(0, 0, 0); /* Neon glow effect */
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-size: 200%
+}
+
+
+
+
+form {
+display:flex;
+justify-content: center;
+align-items: last baseline;
+flex-direction: column;
+}
+
+.UsernameLabel {
+margin-bottom: 150px;
+padding-top: 20px;
+padding: 20px;
+border: none;
+cursor: pointer;
+text-decoration: none;
+color: rgb(228, 243, 247);
+font-family: 'Playfair Display', serif;
+font-size: 22px;
+padding-left: 250px;
+text-align: left;
+width: 30%;
+height: 30px;;
+padding-bottom: 30px;
+}
+
+
+
+.UsernameSignUp {
+margin-bottom: -40px;
+margin-right: 230px;
+margin-top: -147px;
+border: none;
+cursor: pointer;
+background-color: #d7e8fc;
+box-shadow: 0 0 10px rgb(62, 225, 44);
+transition: background-color 0.3s ease;
+font-family: 'Lobster', cursive;
+font-size: 18px;
+text-decoration: none;
+color: rgb(1, 4, 5);
+padding-left: 222px;
+text-align: left;
+width: 30%;
+height: 28px;
+
+}
+
+.PasswordSignUp {
+    margin-bottom: -40px;
+    margin-right: 200px;
+    margin-top: -147px;
+    border: none;
+    cursor: pointer;
+    background-color: #d7e8fc;
+    box-shadow: 0 0 10px rgb(62, 225, 44);
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    color: rgb(1, 4, 5);
+    font-family: 'Lobster', cursive;
+    font-size: 18px;
+    padding-left: 222px;
+    text-align: left;
+    width: 30%;
+    height: 28px;
+}
+
+.login-button {
+position: flex;
+bottom: 28%; /* Adjust the distance from the bottom as needed */
+left: 13px; /* Adjust the distance from the right as needed */
+padding: 5px;
+border: none;
+cursor: pointer;
+background-color: #68f1f1;
+box-shadow: 0 0 10px rgb(62, 225, 44);
+transition: background-color 0.3s ease;
+font-size: extra-large;
+}
+
+.login-button:hover {
+background-color: #cfea1e;
+box-shadow: 0 0 12px rgb(106, 224, 242);
+}
+
+

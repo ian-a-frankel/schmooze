@@ -15,7 +15,6 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  /* max-width: fit-content; */
 }
 /* Home Page CSS */
 #Home {
@@ -30,14 +29,12 @@ body, html {
   position: relative;
 }
 
-
-
 button {
   position: absolute;
-  bottom: -75%; /* Adjust the distance from the bottom as needed */
-  left: 450px; /* Adjust the distance from the right as needed */
+  bottom: -257%; /* Adjust the distance from the bottom as needed */
+  left: 1300px; /* Adjust the distance from the right as needed */
   padding: 5px;
-  background-color: #3498db;
+
   color: #ffffff;
   border: none;
   cursor: pointer;
@@ -49,12 +46,29 @@ img {
   block-size: auto;
 }
 
+.image-container button {
+  background-color: #68f1f1;
+  box-shadow: 0 0 10px rgb(62, 225, 44);
+  transition: background-color 0.3s ease;
+  font-size: 22px;
+  font-weight: 60;
+  
+
+  
+}
+
+.image-container button:hover {
+  background-color: #cfea1e;
+  box-shadow: 0 0 12px rgb(106, 224, 242);
+
+}
+
 
 
 .signup-buttons {
   padding: 0%;
   text-align: center; 
-  margin-top: 0px;
+  margin-top: 0%;
   margin-bottom: 9%;
   color: rgb(0, 0, 0);
   font-weight: bold;
@@ -64,11 +78,23 @@ img {
 
 }
 
+
+
 .signup-buttons button {
+  position: absolute;
+  bottom: -5%; /* Adjust the distance from the bottom as needed */
+  left: 550px; /* Adjust the distance from the right as needed */
+  padding: 5px;
+  border: none;
+  cursor: pointer;
   background-color: #68f1f1;
   box-shadow: 0 0 10px rgb(62, 225, 44);
   transition: background-color 0.3s ease;
-  font-size: large;
+  font-size: extra-large;
+}
+.signup-buttons button:hover {
+  background-color: #cfea1e;
+  box-shadow: 0 0 12px rgb(106, 224, 242);
 }
 
 .signup-buttons a {
@@ -119,42 +145,34 @@ img {
 
 }
 
-.signup-now button {
-  background-color: #68f1f1;
-  box-shadow: 0 0 10px rgb(62, 225, 44);
-  transition: background-color 0.3s ease;
-  font-size: large;
-  
-}
-
-.signup-now button:hover {
-  background-color: #cfea1e;
-  box-shadow: 0 0 12px rgb(106, 224, 242);
-
-}
 
 /* NavBar.css */
 
 .navbar {
   display: flex;
-  background-color: #39e7f4;
-  padding: 0 20px;
+  background-color: #77d7de;
+  padding: 10px;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
+  height: 5vh;
 }
 
 .navbar a {
-  margin: 0 20px;
+  margin: 0 19px;
+  margin-left: auto;
   text-decoration: none;
+  padding-right: 200px;
+  padding-left: 200px;
   color: white;
-  font-size: 16px;
+  font-family: Lato;
+  font-weight: bold;
+  font-size: 1.5rem;
   font-weight: bold;
   transition: color 0.3s ease-in-out;
 }
 
 .navbar a:hover {
-  color: #66a1cc;
+  color: purple;
 }
 
 .logo {
@@ -163,6 +181,7 @@ img {
   padding-bottom: 0px;
 
 }
+
 
 #avatar {
   width:55px;
@@ -206,5 +225,5 @@ img {
 
 #user-box{
   text-align: right;
-  
 }
+
