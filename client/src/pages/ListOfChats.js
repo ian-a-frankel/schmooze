@@ -16,14 +16,14 @@ function ListOfChats({currentUser,URL}) {
                 setUserChat(data)
             })
         }
-        
+
     }, [currentUser])
 
-    const sortedConversations = userChats.sort((a, b) =>
-        b.conversation.messages.slice(-1)[0].id - a.conversation.messages.slice(-1)[0].id
-    );
+    // const sortedConversations = userChats.sort((a, b) =>
+    //     b.conversation.messages.slice(-1)[0].id - a.conversation.messages.slice(-1)[0].id
+    // );
     
-    const info = sortedConversations.map((conversation) => {
+    const info =  userChats.map((conversation) => {
         return <Chat key={conversation.id} conversation={conversation} />
     })
     return(
