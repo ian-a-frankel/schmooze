@@ -44,7 +44,7 @@ function Conversation({currentUser}) {
         // create websocket
         socket = io();
 
-        socket.on("message", (chat) => {
+        socket.on(`message${conv_id}`, (chat) => {
             console.log(chat)
             setmessages(messages => [...messages, chat])
         })
@@ -67,7 +67,7 @@ function Conversation({currentUser}) {
         .then(resp => resp.json())
         .then(data => {
             console.log(data)
-            socket.emit("message", data);
+            // socket.emit("message", data);
             console.log(newMessage)
         })
         
@@ -106,7 +106,8 @@ function Conversation({currentUser}) {
             <form className="message-form" onSubmit={(e) => {
                 e.preventDefault()
                 handleAddNewMessage();
-                console.log(newMessage);
+                e.target.reset();
+                setNewMessage({...newMessage, text: ''})
 
             }}>
                 <label>New Message</label>

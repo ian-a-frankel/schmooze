@@ -23,8 +23,9 @@ def current_user():
 
 @socketio.on('message')
 def handle_message(data):
+    pass
     # Broadcast the received message to all connected clients
-    emit('message', data, broadcast=True)
+    # emit('message', data, broadcast=True)
 
 class Users(Resource):
     def get(self):
@@ -93,8 +94,9 @@ class Messages(Resource):
             "conversation_id": new_message.conversation_id,
             "user": author.to_dict()
         }
+        strid = str(new_message.conversation_id)
         ####### I have changed here
-        socketio.emit('message', result)
+        socketio.emit(f'message{strid}', result)
         return make_response(result, 201)
     
 class MessagesById(Resource):
@@ -114,6 +116,14 @@ class UsersConversations(Resource):
     def get(self, id):
         user = db.session.get(User, id).to_dict()
         return make_response(jsonify(user['userConversations']), 200)
+    
+    def patch(self, id):
+        uc = db.session.get(UserConversation,id)
+        data = request.get_json()
+        setattr(uc, 'unread', data['unread'])
+        db.session.add(uc)
+        db.session.commit()
+        
 
 # @app.get(URL_PREFIX + '/users/<int:user_id>/conversations/<int:conv_id')
 # def get_info(user_id, conv_id):
