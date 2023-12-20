@@ -1,8 +1,9 @@
 import NavBar from "../components/NavBar";
 import { useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Login({attemptLogin, currentUser}) {
+    const [pressed, setPressed]=useState(false)
     const [userInfo, setUserInfo]=useState({
         full_name:'',
         password: ''
@@ -16,29 +17,40 @@ function Login({attemptLogin, currentUser}) {
         e.preventDefault()
         console.log(userInfo)
         attemptLogin(userInfo)
+        setPressed(true)
     }
+
+    function handleclick(){
+        navigate('/listOfChats')
+    }
+
 
     const navigate = useNavigate()
     return(
         <>
         <NavBar currentUser={currentUser} />
         <div className="login-form">
-        <h2>⁜ Log In ⁜</h2>
-            <form onSubmit={(e)=>{
-                handleSubmit(e)
-                if (currentUser) {
-                    navigate('/listOfChats')
-                }
-                
-            }}>
-            <label>Username</label>
-            <input onChange={handleChange} type="text" name="full_name" placeholder="Username" /><br/>
-            <label>Password</label>
-            <input onChange={handleChange} type="text" name="password" placeholder="password" /><br/>
-            <button id='createchat' type="submit">Log in</button>
-            </form>
-            <a href="./Signup">Sign up here if you do not have an account</a>
-        
+        {pressed && currentUser ? (
+                <>
+                <h1>Are you sure you want to Log in</h1>
+                <button id='createchat' onClick={handleclick}>YES</button>
+                </>
+            ) : (
+                <>
+                    <h2>⁜ Log In ⁜</h2>
+                    <form onSubmit={(e)=>{
+                        handleSubmit(e)
+                        setPressed(true)
+                    }}>
+                        <label>Username</label>
+                        <input onChange={handleChange} type="text" name="full_name" placeholder="Username" /><br/>
+                        <label>Password</label>
+                        <input onChange={handleChange} type="text" name="password" placeholder="password" /><br/>
+                        <button id='createchat' type="submit">Log in</button>
+                    </form>
+                    <Link to="/signup">Sign up here if you do not have an account</Link>
+                </>
+            )}
         </div>
         </>
     )

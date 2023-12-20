@@ -26,7 +26,7 @@ function Home({currentUser}) {
 
                     <div class="signup-buttons">
                         <NavLink to ="/signup">
-                        <button onclick="/signup'">Click Here</button>
+                        <button onClick="/signup'">Click Here</button>
                         </NavLink>
                         </div>
 

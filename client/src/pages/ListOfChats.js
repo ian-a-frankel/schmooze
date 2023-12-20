@@ -19,11 +19,12 @@ function ListOfChats({currentUser,URL}) {
 
     }, [currentUser])
 
-    // const sortedConversations = userChats.sort((a, b) =>
-    //     b.conversation.messages.slice(-1)[0].id - a.conversation.messages.slice(-1)[0].id
-    // );
+    const emptyChats=userChats.filter(a=>!a.conversation.messages.length)
+    const notEmptyChats=userChats.filter(a=>a.conversation.messages.length).sort((a, b) =>
+        b.conversation.messages.slice(-1)[0].id - a.conversation.messages.slice(-1)[0].id
+    );
     
-    const info =  userChats.map((conversation) => {
+    const info =  notEmptyChats.concat(emptyChats).map((conversation) => {
         return <Chat key={conversation.id} conversation={conversation} />
     })
     return(
