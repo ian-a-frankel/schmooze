@@ -1,6 +1,9 @@
 import NavBar from "../components/NavBar";
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import './Login.css';
+
+
 
 function Login({attemptLogin, currentUser}) {
     const [userInfo, setUserInfo]=useState({
@@ -35,7 +38,6 @@ function Login({attemptLogin, currentUser}) {
             <input onChange={handleChange} type="text" name="full_name" placeholder="Username" /><br/>
             <label>Password</label>
             <input onChange={handleChange} type="text" name="password" placeholder="password" /><br/>
-            <button type="submit">Log in</button>
             </form>
             <a href="./Signup">Sign up here if you do not have an account</a>
         

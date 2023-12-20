@@ -1,0 +1,69 @@
+/* Login.css */
+
+body {
+font-family: 'Arial', sans-serif;
+margin: 0;
+padding: 0;
+background-color: #1a1a1a; /* Dark background color */
+color: #fff; /* Text color */
+}
+
+.login-form {
+background-color: #292929; /* Form background color */
+border-radius: 10px;
+padding: 20px;
+max-width: 400px;
+margin: 50px auto;
+box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Neon glow effect */
+}
+
+.login-form {
+width: 250%;
+height: 100%;
+background-image: url('/public/background.svg');  /* Replace with the actual path to your image */
+background-size: cover;  /* Adjust based on your preference */
+background-position: center;  /* Adjust based on your preference */
+padding: 20px;  /* Add padding for better aesthetics */
+border-radius: 10px;  /* Add border-radius for rounded corners */
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Add a subtle box shadow for depth */
+}
+
+
+h2 {
+text-align: center;
+color: #66ff66; /* Neon green */
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Neon glow effect */
+}
+
+form {
+display: flex;
+flex-direction: column;
+}
+
+label {
+margin-bottom: 8px;
+color: #ffcc00; /* Neon yellow */
+}
+
+input {
+padding: 10px;
+margin-bottom: 16px;
+border: none;
+border-radius: 5px;
+background-color: #333; /* Dark input background color */
+color: #fff;
+}
+
+input:focus {
+outline: none;
+box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Neon glow effect on focus */
+}
+
+a {
+color: #ff3399; /* Neon pink */
+text-decoration: none;
+}
+
+a:hover {
+text-decoration: underline;
+}
