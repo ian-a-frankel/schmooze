@@ -17,7 +17,7 @@ function Home({currentUser}) {
             </div>
 
 
-        <div>
+
 
             <img  src="/2.svg" alt="Home"/>
             <img  src="/3.svg" alt="Home"/>

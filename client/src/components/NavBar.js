@@ -23,8 +23,6 @@ function NavBar({currentUser}) {
             
             {currentUser? null: <NavLink to='/signup'>Sign Up</NavLink>}
 
-            {currentUser? null: <NavLink to='/signup'>Sign Up</NavLink>}
-
             {currentUser? <select onChange={handleDropdown}>
                 <option>Chat Menu</option>
                 <option value='chatlist' name='chatlist'>List Of Chats</option>
