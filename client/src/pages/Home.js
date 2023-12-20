@@ -9,6 +9,7 @@ import NavBar from "../components/NavBar";
 function Home({currentUser}) {
     return(<>
             
+            <NavBar currentUser={currentUser} />
             
             <div class="image-container">
             <img  src="/home.svg" alt="Home"/>  
@@ -20,7 +21,6 @@ function Home({currentUser}) {
             <img  src="/4.svg" alt="Home"/>
             <img  src="/5.svg" alt="Home"/>
 
-        </div>
 
                     <div class="signup-buttons">
                         <NavLink to ="/signup">
