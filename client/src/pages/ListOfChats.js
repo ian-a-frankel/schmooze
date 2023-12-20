@@ -29,7 +29,7 @@ function ListOfChats({currentUser,URL}) {
     return(
         <>
         <NavBar currentUser={currentUser} />
-        <div className="message">
+        <div className="chatlist">
             {info}
         </div>
         </>
