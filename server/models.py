@@ -49,6 +49,8 @@ class UserConversation (db.Model, SerializerMixin):
     serialize_rules =('-user.userConversations', '-conversation.userConversations')
     id = db.Column(db.Integer, primary_key=True)
     
+    unread = db.Column(db.Boolean, default=False)
+    
     user_id = db.Column(db.Integer, db.ForeignKey('users_table.id'), nullable=False)
     conversation_id = db.Column(db.Integer, db.ForeignKey('conversations_table.id'), nullable=False)
     user=db.relationship('User', back_populates='userConversations')

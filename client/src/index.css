@@ -163,3 +163,9 @@ img {
   padding-bottom: 0px;
 
 }
+
+#avatar {
+  width:55px;
+  height: 55px;
+  border-radius: 50%;
+}
