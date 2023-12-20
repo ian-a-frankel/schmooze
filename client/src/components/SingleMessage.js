@@ -7,7 +7,7 @@ function SingleMessage({msg}) {
         <div className="message-box">
 
             <h3 key={msg.id}>{msg.text}</h3><br/>
-            <img src={msg.user.image}/><h4>{msg.user.full_name}</h4><h5>{msg.date_sent}</h5>
+            <img id='avatar' src={msg.user.image}/><h4>{msg.user.full_name}</h4><h5>{msg.date_sent}</h5>
             {/* <select name="dropdown" id="dropdown"> 
                 <option value="edit" name="edit" ><button>Edit</button></option> 
                 <option value="delete" name="delete" ><button>Delete</button></option>
