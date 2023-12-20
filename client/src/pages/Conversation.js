@@ -11,7 +11,7 @@ function Conversation({currentUser}) {
     const [currentUcid, setCurrentUcid] = useState(0)
 
     const params = useParams()
-    const conv_id = params.id
+    const conv_id = Number(params.id)
     console.log(conv_id)
     
     
@@ -26,8 +26,8 @@ function Conversation({currentUser}) {
     const [messages, setmessages] = useState([])
     
     useEffect(() => {
-        if(currentUser) {
-            console.log(currentUser)
+        if(currentUser && currentUser.userConversations.map(c => c.conversation_id).includes(conv_id)) {
+            
             fetch(`/api/conversations/${conv_id}`)
             .then(resp => resp.json())
             .then(data => {
@@ -51,11 +51,8 @@ function Conversation({currentUser}) {
                 console.log(currentUser.full_name)
                 setNewMessage({ ...newMessage, user: currentUser, user_id: currentUser.id})
             })
-
-
-        
             
-    }
+        }
     }, [currentUser])
 
     useEffect(() => {
@@ -64,18 +61,21 @@ function Conversation({currentUser}) {
         socket = io();
 
         socket.on(`message${conv_id}`, (chat) => {
-            console.log(chat)
-            setmessages(messages => [...messages, chat])
-            console.log(currentUser)
-            fetch(`/api/userConversations/${currentUser.id}`, {                            
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: JSON.stringify({unread: -1})
-                }
-            )
+            if (currentUser && currentUser.userConversations.map(c => c.conversation_id).includes(conv_id)) {
+                
+                setmessages(messages => [...messages, chat])
+                
+                fetch(`/api/userConversations/${currentUser.id}`, {                            
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify({unread: -1})
+                    }
+                )
+                
+            }
         })
         // when component unmounts, disconnect
         return (() => {
@@ -84,31 +84,32 @@ function Conversation({currentUser}) {
     }, [])
 
     function handleAddNewMessage() {
-        console.log(currentUser.id)
-        fetch("/api/messages", {
-            method: "POST",
-            headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-            body: JSON.stringify(newMessage)
-        })
-        .then(resp => resp.json())
-        .then(data => {
-            for (let uc of ucs) {
-                if (uc.user_id !== currentUser.id) {
-                    fetch(`/api/userConversations/${uc.id}`, {                            
-                        method: "PATCH",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Accept": "application/json"
-                        },
-                        body: JSON.stringify({unread: 1})
-                    })
+        if (currentUser.userConversations.map(c => c.conversation_id).includes(conv_id)) {  
+            setmessages([...messages, newMessage])
+            fetch("/api/messages", {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+                body: JSON.stringify(newMessage)
+            })
+            .then(resp => resp.json())
+            .then(data => {
+                for (let uc of ucs) {
+                    if (uc.user_id !== currentUser.id) {
+                        fetch(`/api/userConversations/${uc.id}`, {                            
+                            method: "PATCH",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Accept": "application/json"
+                            },
+                            body: JSON.stringify({unread: 1})
+                        })
+                    }
                 }
-            }
-        })
-        
+            })
+        }
     }
     
     function msgarray() {
@@ -136,7 +137,6 @@ function Conversation({currentUser}) {
     })
     
     const chatbox = msgarray().map((msg) => {
-
         return <SingleMessage key={msg.id} msg={msg} />
     })
 
