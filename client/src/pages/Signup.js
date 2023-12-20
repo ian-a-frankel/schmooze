@@ -34,7 +34,7 @@ function Signup({attemptSignup, currentUser}) {
                 <input onChange={handleChange} type="text" name="password" placeholder="Password" /><br/>
                 <label>Upload Avatar</label>
                 <input onChange={handleChange} type="text" name="image" placeholder="Image URL" /><br/>
-                <button type="submit">Sign Up</button>
+                <button id='createchat' type="submit">Sign Up</button>
             </form>
         
         </div>

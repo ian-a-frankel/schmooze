@@ -14,7 +14,8 @@ function Conversation({currentUser}) {
     const conv_id = params.id
     console.log(conv_id)
     
-
+    
+    const [currentUsers, setCurrentUsers]=useState([])
     const [newMessage, setNewMessage]=useState({
         text : '',
         user: null,
@@ -45,10 +46,12 @@ function Conversation({currentUser}) {
                     }
                 }
                 setmessages(data['messages'])
+                setCurrentUsers(data.userConversations.map(userConv => userConv.user.full_name))
                 setUcs(data['userConversations'])
                 console.log(currentUser.full_name)
                 setNewMessage({ ...newMessage, user: currentUser, user_id: currentUser.id})
             })
+
 
         
             
@@ -126,7 +129,11 @@ function Conversation({currentUser}) {
         bottomRef.current?.scrollIntoView();
     }, [messages])
     
-
+    const userBox = currentUsers.map((user, index) => {
+        return (
+            <p key={index} style={{ margin: '4px ', fontWeight: 'bold' }}> {user} </p>
+        )
+    })
     
     const chatbox = msgarray().map((msg) => {
 
@@ -137,7 +144,14 @@ function Conversation({currentUser}) {
         <>
         <NavBar currentUser={currentUser} />
         <div className="message">
+            <div id ='chat-box'>
             {chatbox}
+            </div>
+            <div id="user-box">
+                <p>Users: </p>
+            {userBox}
+            </div>
+            </div>
             <form className="message-form" onSubmit={(e) => {
                 e.preventDefault()
                 handleAddNewMessage();
@@ -152,9 +166,8 @@ function Conversation({currentUser}) {
                     placeholder="Type here"
                     onChange={(e) => setNewMessage({ ...newMessage, text: e.target.value})}
                 />
-                <button ref={bottomRef} type="submit">Send</button>
+                <button id='createchat' ref={bottomRef} type="submit">Send</button>
                 </form>
-        </div>
         </>
     )
 }
