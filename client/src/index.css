@@ -15,7 +15,7 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  max-width: fit-content;
+
 }
 /* Home Page CSS */
 #Home {
@@ -32,10 +32,10 @@ body, html {
 
 button {
   position: absolute;
-  bottom: -255%; /* Adjust the distance from the bottom as needed */
-  left: 1750px; /* Adjust the distance from the right as needed */
+  bottom: -257%; /* Adjust the distance from the bottom as needed */
+  left: 1300px; /* Adjust the distance from the right as needed */
   padding: 5px;
-  background-color: #3498db;
+
   color: #ffffff;
   border: none;
   cursor: pointer;
@@ -51,7 +51,9 @@ img {
   background-color: #68f1f1;
   box-shadow: 0 0 10px rgb(62, 225, 44);
   transition: background-color 0.3s ease;
-  font-size: xx-large
+  font-size: 22px;
+  font-weight: 60;
+  
 
   
 }
@@ -67,7 +69,7 @@ img {
 .signup-buttons {
   padding: 0%;
   text-align: center; 
-  margin-top: 0px;
+  margin-top: 0%;
   margin-bottom: 9%;
   color: rgb(0, 0, 0);
   font-weight: bold;
@@ -90,6 +92,10 @@ img {
   box-shadow: 0 0 10px rgb(62, 225, 44);
   transition: background-color 0.3s ease;
   font-size: extra-large;
+}
+.signup-buttons button:hover {
+  background-color: #cfea1e;
+  box-shadow: 0 0 12px rgb(106, 224, 242);
 }
 
 .signup-buttons a {
@@ -145,7 +151,7 @@ img {
 
 .navbar {
   display: flex;
-  background-color: rgb(203, 174, 11);
+  background-color: #77d7de;
   padding: 10px;
   justify-content: space-between;
   align-items: center;
@@ -154,11 +160,10 @@ img {
 
 .navbar a {
   margin: 0 19px;
-  margin-left: 22px;
-  margin-right: 16px;
+  margin-left: auto;
   text-decoration: none;
-  padding-right: 373px;
-  padding-left: 373px;
+  padding-right: 200px;
+  padding-left: 200px;
   color: white;
   font-family: Lato;
   font-weight: bold;
@@ -177,4 +182,3 @@ img {
   padding-bottom: 0px;
 
 }
-

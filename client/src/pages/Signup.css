@@ -77,8 +77,8 @@ padding-bottom: 0%;
 
 .signupInnerContainer button{
 position: flex;
-bottom: 15%; /* Adjust the distance from the bottom as needed */
-left: 1225px; /* Adjust the distance from the right as needed */
+bottom: -10%; /* Adjust the distance from the bottom as needed */
+left: 920px; /* Adjust the distance from the right as needed */
 padding: 5px;
 border: none;
 cursor: pointer;
@@ -101,7 +101,7 @@ display: flex;
 margin : 50px;
 margin-left: auto;
 margin-right: auto;
-margin-bottom: -26px;
+margin-bottom: -30px;
 margin-top: 18px;
 width: 20%;
 font-family: 'Lobster', italic;
@@ -136,26 +136,33 @@ text-align: center;
 .label {
 font-family: 'Lato', cursive;
 padding-top: 160px;
-margin-top: 10px;
+margin-left: auto;
+margin-right: auto;
+padding-left: 0%;
+margin-bottom: 0px;
+font-size: 22px;
+color: white;
+
+}
+
+.label1 {
+font-family: 'Lato', cursive;
+padding-top: 10px;
+margin-left: auto;
+margin-right: auto;
+padding-left: 0%;
+margin-top: 5px;
 margin-bottom: 0px;
 font-size: 22px;
 color: white;
 text-align: center;
 }
 
-.label1 {
-    font-family: 'Lato', cursive;
-    padding-top: 10px;
-    margin-top: 5px;
-    margin-bottom: 0px;
-    font-size: 22px;
-    color: white;
-    text-align: center;
-    }
-
 .label2 {
     font-family: 'Lato', cursive;
-    padding-top: 0%;
+    padding-left: 0%;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 0%;
     margin-bottom: 0%;
     font-size: 22px;

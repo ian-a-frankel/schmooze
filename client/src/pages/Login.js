@@ -26,7 +26,12 @@ function Login({attemptLogin, currentUser}) {
         <>
         <NavBar currentUser={currentUser} />
         <div className="login-form">
-        <h2>⁜ Log In ⁜</h2>
+            
+        <h2>🌺 Log In 🌺</h2>
+        <h1>Enter the Realm of Connectivity
+            <br /> Schmooze
+            <br />Where Every Login Unleashes Opportunities!</h1>
+            <p>Enter your username and password to log in.</p>
             <form onSubmit={(e)=>{
                 handleSubmit(e)
                 if (currentUser) {
@@ -34,12 +39,13 @@ function Login({attemptLogin, currentUser}) {
                 }
                 
             }}>
-            <label>Username</label>
-            <input onChange={handleChange} type="text" name="full_name" placeholder="Username" /><br/>
-            <label>Password</label>
-            <input onChange={handleChange} type="text" name="password" placeholder="password" /><br/>
+            <label className="UsernameLabel">Username</label>
+            <input className="UsernameSignUp" onChange={handleChange} type="text" name="full_name" placeholder="username goes here" /><br/>
+            <label className="UsernameLabel">Password</label>
+            <input className="PasswordSignUp" onChange={handleChange} type="text" name="password" placeholder="password goes here" /><br/>
             </form>
-            <a href="./Signup">Sign up here if you do not have an account</a>
+            <button className="login-button" onClick={handleSubmit}>Log In</button>
+            <a className="signup-link" href="./Signup">Sign up here if you do not have an account</a>
         
         </div>
         </>
