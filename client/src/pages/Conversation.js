@@ -148,7 +148,7 @@ function Conversation({currentUser}) {
             {chatbox}
             </div>
             <div id="user-box">
-                <p>Users: </p>
+                <p>Schmoozers: </p>
             {userBox}
             </div>
             </div>

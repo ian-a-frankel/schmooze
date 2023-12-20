@@ -4,6 +4,8 @@ import React from 'react';
 import {Link} from "react-router-dom"
 
 function Chat({ conversation }) {
+  console.log(conversation.conversation)
+  if (conversation.conversation.messages.length > 0) {
   return (
     <>
       <div className="conversation-container">
@@ -15,6 +17,16 @@ function Chat({ conversation }) {
       </div>
     </>
   );
+}else {
+return (
+  <>
+    <div className="conversation-container">
+      <h3>{conversation.conversation.name}</h3>
+      <p>No messages yet!</p>
+      <Link to={`/conversations/${conversation.conversation.id}`}>Go to Conversation</Link>
+    </div>
+  </>
+);
 }
-
+}
 export default Chat;

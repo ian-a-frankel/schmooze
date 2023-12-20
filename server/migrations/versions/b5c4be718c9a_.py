@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 4bdbdc7e8652
+Revision ID: b5c4be718c9a
 Revises: 
-Create Date: 2023-12-13 14:37:30.425206
+Create Date: 2023-12-20 15:03:37.222945
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '4bdbdc7e8652'
+revision = 'b5c4be718c9a'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -26,7 +26,9 @@ def upgrade():
     op.create_table('users_table',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('full_name', sa.String(), nullable=False),
+    sa.Column('image', sa.String(), nullable=True),
     sa.Column('occupation', sa.String(), nullable=True),
+    sa.Column('password_hash', sa.String(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('messages_table',
@@ -41,6 +43,7 @@ def upgrade():
     )
     op.create_table('userConversation_table',
     sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('unread', sa.Integer(), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('conversation_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['conversation_id'], ['conversations_table.id'], name=op.f('fk_userConversation_table_conversation_id_conversations_table')),
