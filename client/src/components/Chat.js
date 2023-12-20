@@ -13,7 +13,7 @@ function Chat({ conversation }) {
         <p>Last Message: {conversation.conversation.messages.slice(-1)[0].text}</p>
         <p>Sent by: {conversation.conversation.messages.slice(-1)[0].user.full_name}</p>
         <p>Date Sent: {conversation.conversation.messages.slice(-1)[0].date_sent}</p>
-        <p>Unread messages: {conversation.unread}</p>
+        <p style={!conversation.unread? null: {color: "red"}}>Unread messages: {conversation.unread}</p>
         <Link to={`/conversations/${conversation.conversation.id}`}>Go to Conversation</Link>
       </div>
     </>

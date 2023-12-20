@@ -7,6 +7,7 @@ let socket;
 
 function Conversation({currentUser}) {
     const bottomRef = useRef(null)
+
     const [ucs, setUcs] = useState([])
     const [currentUcid, setCurrentUcid] = useState(0)
 
