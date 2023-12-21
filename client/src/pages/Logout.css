@@ -1,0 +1,40 @@
+/* Logout.css */
+
+body {
+    background-color: #000; /* Background color for the entire page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.logout-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.neon-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 2em;
+    color: #0f0; /* Neon green color */
+    text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
+    margin-bottom: 20px;
+}
+
+.neon-button {
+    background-color: #00f; /* Neon blue color */
+    color: #fff;
+    font-size: 1.5em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+neon-button:hover {
+    background-color: #33f; /* Slightly brighter blue on hover */
+}
