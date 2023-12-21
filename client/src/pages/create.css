@@ -9,18 +9,18 @@
     margin-left: 5%;
     margin-bottom: 10vh;
 }
-
+  
 #createchat button{
     border-radius: 20px;
     background-color: #68d1e3
 }
-
+  
 .adduser {
     position: static;
     margin: 4%;
     margin-bottom: 10%;
 }
-
+  
 .create{
     position: static;
     width: 70%;
