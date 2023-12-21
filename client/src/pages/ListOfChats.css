@@ -9,11 +9,6 @@ body {
     background-repeat: no-repeat;
 }
   
-  
-  #root {
-    height: 100vh;
-  }
-  
   * {
     box-sizing: border-box;
   }
@@ -25,6 +20,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 20px;
+    
   }
   
   .conversation-container {
