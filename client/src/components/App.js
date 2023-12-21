@@ -110,7 +110,7 @@ function App() {
   
   return(
     <>
-    <header>
+    <header style = {{background : "#ffffff", color :"#ffffff"}}>
     <img class="logo" src="/logo.png" alt="Schmooze"/>
     </header>
     <RouterProvider router={router}/>

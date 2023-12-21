@@ -3,7 +3,9 @@ import { useParams } from "react-router-dom";
 import SingleMessage from "../components/SingleMessage";
 import NavBar from "../components/NavBar";
 import {io} from 'socket.io-client' 
+import './Conversation.css';
 let socket;
+
 
 function Conversation({currentUser}) {
     const bottomRef = useRef(null)
@@ -145,10 +147,10 @@ function Conversation({currentUser}) {
         <>
         <NavBar currentUser={currentUser} />
         <div className="message">
-            <div id ='chat-box'>
+            <div className ='chat-box'>
             {chatbox}
             </div>
-            <div id="user-box">
+            <div className ="user-box">
                 <p>Schmoozers: </p>
             {userBox}
             </div>
@@ -167,7 +169,7 @@ function Conversation({currentUser}) {
                     placeholder="Type here"
                     onChange={(e) => setNewMessage({ ...newMessage, text: e.target.value})}
                 />
-                <button id='createchat' ref={bottomRef} type="submit">Send</button>
+                <button className='createchat' ref={bottomRef} type="submit">Send</button>
                 </form>
         </>
     )
