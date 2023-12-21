@@ -1,10 +1,12 @@
 
-function SingleMessage({msg}) {
+function SingleMessage({msg, currentUser}) {
 
-    console.log(msg)
+    console.log(currentUser)
+
+    const nameOfClass = currentUser.id === msg.user_id ? 'right-message-box' : 'left-message-box'
 
     return(
-        <div className="message-box">
+        <div className={nameOfClass}>
 
             <h3 id='textmsg' key={msg.id}>{msg.text}</h3>
             <div className="user">
