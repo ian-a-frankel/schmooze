@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Chat from "../components/Chat";
 import NavBar from "../components/NavBar";
+import './ListOfChats.css'
 
 function ListOfChats({currentUser,URL}) {
     
@@ -30,6 +31,7 @@ function ListOfChats({currentUser,URL}) {
     return(
         <>
         <NavBar currentUser={currentUser} />
+        
         <div className="chatlist">
             {info}
         </div>

@@ -1,0 +1,111 @@
+
+body {
+    font-family: 'Lobster', sans-serif;
+    padding: 0;
+    margin: 0;
+    background-image: url('../../public/project_phase_4.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+  
+  
+  #root {
+    height: 100vh;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+
+ 
+  
+  .chatlist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  
+  .conversation-container {
+    
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 15px;
+    width: 300px;
+  }
+  
+  .conversation-container h3 {
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(232, 69, 132, 0.5); /* Neon glow effect */
+    font-family: 'Lobster', cursive;
+  }
+  
+  .conversation-container p {
+    margin-bottom: 8px;
+  }
+  
+  /* .conversation-container a {
+    color: #68f1f1;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+  } */
+
+  .conversation-container a {
+    color: #030303;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+    background-color: #68f1f1; /* Your desired border color */
+    padding: 8px; /* Add padding for better visual appeal */
+    width: 100%; /* Set width to 100% */
+    box-sizing: border-box; /* Include padding and border in the total width */
+    transition: color 0.3s ease-in-out;
+    font-family: 'Lobster', cursive;
+    border-radius: 10px 
+  }
+  
+  
+  .conversation-container a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Media query for responsive design */
+  @media (max-width: 600px) {
+    .chatlist {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .conversation-container {
+      width: 80%;
+    }
+  }
+  .conversation-container p:last-child {
+    font-size: 1.2em; /* Change the font size as needed */
+    font-weight: bold; /* Optionally, you can make it bold for emphasis */
+  }
+  
+  
+
+ 
+  
+  .conversation-container a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Media query for responsive design */
+  @media (max-width: 600px) {
+    .chatlist {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .conversation-container {
+      width: 80%;
+    }
+  }
