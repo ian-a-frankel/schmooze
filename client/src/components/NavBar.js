@@ -2,15 +2,17 @@ import { useState } from "react";
 import {NavLink} from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 
-function NavBar({currentUser}) {
+function NavBar({currentUser, pinger, setPinger}) {
 
     const navigate = useNavigate()
 
     function handleDropdown(e) {
         if (e.target.value === 'newchat') {
+            setPinger(pinger + 1)
             navigate('/create')
         }
         if (e.target.value === 'chatlist') {
+            setPinger(pinger + 1)
             navigate('/listOfChats')
         }
     }

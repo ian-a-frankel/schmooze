@@ -94,8 +94,15 @@ class Messages(Resource):
             "conversation_id": new_message.conversation_id,
             "user": author.to_dict()
         }
-        strid = str(new_message.conversation_id)
-        socketio.emit(f'message{strid}', result)
+        strcid = str(new_message.conversation_id)
+        socketio.emit(f'message{strcid}', result)
+        c_id = data['conversation_id']
+        convo_members = db.session.get(Conversation, c_id).users
+        for member in convo_members:
+            struid = str(member.id)
+            socketio.emit(f'ping{struid}')
+            print(f'ping{struid}')
+
         return make_response(result, 201)
     
 class MessagesById(Resource):

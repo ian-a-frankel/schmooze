@@ -8,6 +8,8 @@ import Login from "../pages/Login";
 import Logout from "../pages/Logout";
 import Signup from "../pages/Signup";
 import ListOfChats from "../pages/ListOfChats";
+import {io} from 'socket.io-client'
+let socket
 
 const URL = "/api"
 
@@ -19,6 +21,8 @@ const POST_HEADERS = {
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const params = useParams()
+  const [haveUser, setHaveUser] = useState(null)
+  const [pinger, setPinger] = useState(0)
 
   // CHECK SESSION //
   useEffect(() => {
@@ -28,13 +32,43 @@ function App() {
         res.json()
         .then(userData => {
           setCurrentUser(userData)
-          
+          setHaveUser(1)          
         })
       }
     })
-  }, [])
+  }, [pinger])
 
-  console.log(currentUser)
+  useEffect(() => {
+    // open socket connection
+    // create websocket
+    socket = io();
+    if (currentUser) {
+      console.log('activating pinger')
+      socket.on(`ping${currentUser.id}`, (chat) => {
+          if (currentUser) {
+            setPinger(pinger + 1)
+            console.log('ping')
+            fetch(URL + '/check_session')
+            .then(res => {
+              if (res.ok) {
+                res.json()
+                .then(userData => {
+                  setCurrentUser(userData)
+                  setHaveUser(1)
+                  console.log('am pinging')
+                  
+                })
+              }
+            })
+              
+          }
+      })
+    }
+    // when component unmounts, disconnect
+    return (() => {
+        socket.disconnect()
+    })
+}, [haveUser])
   
 
 
@@ -81,15 +115,15 @@ function App() {
     },
     {
       path: `/conversations/:id`,
-      element: <Conversation currentUser={currentUser}/>
+      element: <Conversation currentUser={currentUser} pinger={pinger} setPinger={setPinger}/>
     },
     {
       path: "/listOfChats",
-      element: <ListOfChats currentUser={currentUser} URL={URL}/>
+      element: <ListOfChats currentUser={currentUser} pinger={pinger} setPinger={setPinger} URL={URL}/>
     },
     {
       path: "/create",
-      element: <Create currentUser={currentUser} />
+      element: <Create currentUser={currentUser} pinger={pinger} setPinger={setPinger}/>
     },
     {
       path: "/login",

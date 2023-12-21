@@ -2,10 +2,11 @@ import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import SingleMessage from "../components/SingleMessage";
 import NavBar from "../components/NavBar";
-import {io} from 'socket.io-client' 
+import {io} from 'socket.io-client'
+import UnreadCounter from "../components/UnreadCounter"; 
 let socket;
 
-function Conversation({currentUser}) {
+function Conversation({currentUser, pinger, setPinger}) {
     const bottomRef = useRef(null)
 
     const [ucs, setUcs] = useState([])
@@ -54,7 +55,7 @@ function Conversation({currentUser}) {
             })
             
         }
-    }, [currentUser])
+    }, [currentUser, pinger])
 
     useEffect(() => {
         // open socket connection
@@ -143,7 +144,7 @@ function Conversation({currentUser}) {
 
     return(
         <>
-        <NavBar currentUser={currentUser} />
+        <NavBar currentUser={currentUser} pinger={pinger} setPinger={setPinger}/>
         <div className="message">
             <div id ='chat-box'>
             {chatbox}
@@ -169,6 +170,7 @@ function Conversation({currentUser}) {
                 />
                 <button id='createchat' ref={bottomRef} type="submit">Send</button>
                 </form>
+                <UnreadCounter currentUser={currentUser} pinger={pinger}/>
         </>
     )
 }
