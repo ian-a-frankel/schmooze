@@ -1,7 +1,7 @@
 import NavBar from "../components/NavBar";
 import { useState } from 'react'
 
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 import './Login.css';
 
@@ -61,9 +61,9 @@ function Login({attemptLogin, currentUser}) {
 
                         <button className="login-button" type="submit">Log in</button>
                     </form>
-            
-                    <Link className="signup-link" to="/signup">Sign up here if you do not have an account</Link>
-
+                    <div className="signup-link">
+                    <NavLink  to="/signup">Sign up here if you do not have an account</NavLink>
+                    </div>
                 </>
             )}
 

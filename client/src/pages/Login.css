@@ -146,12 +146,12 @@ box-shadow: 0 0 12px rgb(106, 224, 242);
 
 .signup-link {
 position: flex;
-padding-left: 5%;
-padding-right: 5%;
+padding: 1%;
+margin:  5% 12% 35% 60%;
 border: none;
 cursor: pointer;
-background-color: #c0591a;
-box-shadow: 0 0 10px rgb(119, 1, 1);
-transition: background-color 0.3s ease;
-font-size: extra-large;
+font-size: 140%;
+color: #cfea1e;
+text-align: center;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
