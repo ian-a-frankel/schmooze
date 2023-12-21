@@ -1,3 +1,61 @@
-.searchbar {
+#createchat{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    margin: 3%;
+    margin-left: 5%;
+    margin-bottom: 10vh;
+}
+  
+#createchat button{
+    border-radius: 20px;
+    background-color: #68d1e3
+}
+  
+.adduser {
     position: static;
+    margin: 4%;
+    margin-bottom: 10%;
+}
+  
+.create{
+    position: static;
+    width: 70%;
+    margin-bottom: 3%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#displayselecteduser {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+    padding: 0% 5% 0% 5%;
+    text-align: center;
+    /* margin-bottom: 5vh; */
+    border: 1mm solid rgba(125, 192, 246, 0);
+    border-radius: 20px;
+    box-sizing: border-box;
+    font-weight: 700;
+    background-color: #d4f2f8;
+    box-shadow: 0 0 35px 15px #d7f0fd67;
+}
+
+#searchbar {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-weight: 700;
+    color: #d4f2f8;
+    padding: 2vh;
+    margin-bottom: 2vh;
+}
+
+#searchbar input{
+    width: 50vh;
+    margin-left: auto;
+    margin-right: auto;
 }
