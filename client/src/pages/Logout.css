@@ -1,0 +1,29 @@
+.logoutimg {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+}
+
+.logout-container {
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    margin-top: 5vh;
+}
+#logoutbtn {
+    position: static;
+    margin-left: 37%;
+    border-radius: 30px;
+    background-color: #260347;
+    width: 50vh;
+  }
+
+#logouttext {
+    margin-top: 5%;
+    color: aliceblue;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 200%;
+    text-align: center;
+}
