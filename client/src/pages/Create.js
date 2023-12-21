@@ -114,10 +114,11 @@ function Create({currentUser}) {
             handleSubmit()
             }}>
                 <Search setNameSearchText={setNameSearchText} />
-                
-                {displayRemove}
                 <label>Chat Name: </label>
                 <input onChange={(e)=>{setChatName(e.target.value)}}  type="text" name="create" placeholder="Optional" />
+                <div id={deleteableMembers <= 0 ? null: 'displayselecteduser'}>
+                {displayRemove}
+                </div>
                 <button className="create" type="submit">Create Chat With Selected Users</button>
                 <div id='displayselecteduser'>
                 {displayAddUsers}
