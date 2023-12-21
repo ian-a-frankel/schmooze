@@ -139,7 +139,7 @@ function Conversation({currentUser, pinger, setPinger}) {
     })
     
     const chatbox = msgarray().map((msg) => {
-        return <SingleMessage key={msg.id} msg={msg} />
+        return <SingleMessage key={msg.id} msg={msg} currentUser={currentUser}/>
     })
 
     return(
