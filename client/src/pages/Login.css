@@ -144,18 +144,14 @@ background-color: #cfea1e;
 box-shadow: 0 0 12px rgb(106, 224, 242);
 }
 
-.signup-links button {
-    position: flex;
-    bottom: 28%; /* Adjust the distance from the bottom as needed */
-    left: 72%; /* Adjust the distance from the right as needed */
-    padding: 5px;
-    margin-right: 10%;
-    margin-left: auto;
-    margin-bottom: -18%;
-    border: none;
-    cursor: pointer;
-    background-color: #f19d68;
-    box-shadow: 0 0 10px rgb(119, 1, 1);
-    transition: background-color 0.3s ease;
-    font-size: extra-large;
+.signup-link {
+position: flex;
+padding-left: 5%;
+padding-right: 5%;
+border: none;
+cursor: pointer;
+background-color: #c0591a;
+box-shadow: 0 0 10px rgb(119, 1, 1);
+transition: background-color 0.3s ease;
+font-size: extra-large;
 }

@@ -33,11 +33,7 @@ border-radius: 10px;  /* Add border-radius for rounded corners */
 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Add a subtle box shadow for depth */
 }
 
-.input {
-border-radius: 0;
-padding: 15px 20px;
-width: 100%;
-}
+
 .heading {
 color: white;
 font-size: 100px;
@@ -74,10 +70,9 @@ padding-bottom: 0%;
 
 }
 
-
 .signupInnerContainer button{
 position: flex;
-bottom: -10%; /* Adjust the distance from the bottom as needed */
+bottom: -5%; /* Adjust the distance from the bottom as needed */
 left: 920px; /* Adjust the distance from the right as needed */
 padding: 5px;
 border: none;
@@ -159,16 +154,16 @@ text-align: center;
 }
 
 .label2 {
-    font-family: 'Lato', cursive;
-    padding-left: 0%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0%;
-    margin-bottom: 0%;
-    font-size: 22px;
-    color: white;
-    text-align: center;
-    }
+font-family: 'Lato', cursive;
+padding-left: 0%;
+margin-left: auto;
+margin-right: auto;
+margin-top: 0%;
+margin-bottom: 0%;
+font-size: 22px;
+color: white;
+text-align: center;
+}
 
 
 
