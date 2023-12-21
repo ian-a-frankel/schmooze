@@ -38,7 +38,7 @@ function Login({attemptLogin, currentUser}) {
         {pressed && currentUser ? (
                 <>
                 <h1>Are you sure you want to Log in</h1>
-                <button id='createchat' onClick={handleclick}>YES</button>
+                <button id='yesbtn' onClick={handleclick}>YES</button>
                 </>
             ) : (
                 <>

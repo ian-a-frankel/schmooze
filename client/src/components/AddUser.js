@@ -3,8 +3,8 @@ function AddUser({user, handleAdd, setTargetUser}) {
 
 
     return(
-        <div className="adduser">
-            <p>{user.full_name}</p><button id='createchat' onMouseDown={(e) => setTargetUser(user)} onMouseUp={e => 
+        <div >
+            <p>{user.full_name}</p><button onMouseDown={(e) => setTargetUser(user)} onMouseUp={e => 
                 {   e.preventDefault()
                     handleAdd(e)
                     
