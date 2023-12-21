@@ -110,20 +110,22 @@ function Create({currentUser}) {
     return(<>
     <NavBar currentUser={currentUser} />
         <div >
-            <form onSubmit={e => {e.preventDefault()
+            <form id='createchat' onSubmit={e => {e.preventDefault()
             handleSubmit()
             }}>
                 <Search setNameSearchText={setNameSearchText} />
                 
                 {displayRemove}
-                <label>Name: </label>
+                <label>Chat Name: </label>
                 <input onChange={(e)=>{setChatName(e.target.value)}}  type="text" name="create" placeholder="Optional" />
-                <button type="submit">Create Chat With Selected Users</button>
+                <button className="create" type="submit">Create Chat With Selected Users</button>
+                <div id='displayselecteduser'>
                 {displayAddUsers}
+                </div>
                 
             </form>
-
         </div>
+
         </>
     )
 }

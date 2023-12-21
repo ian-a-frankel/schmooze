@@ -201,15 +201,6 @@ img {
   column-gap: 5px;
 }
 
-.adduser {
-  position: relative;
-  margin-bottom: 5%;
-  display: grid;
-  align-items: center;
-  grid-template-columns: 0.2fr 0.2fr 1fr;
-  column-gap: 5px;
-}
-
 #textmsg {
   margin-left: 2%;
 }
@@ -237,3 +228,36 @@ img {
   border-radius: 30px;
   background-color: #260347
 }
+
+#createchat{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  align-items: flex-start;
+  margin: 3%;
+  margin-left: 5%;
+
+}
+
+
+
+.adduser {
+  position: static;
+  margin: 3%;
+  margin-bottom: 10%;
+}
+
+.create{
+  position: static;
+  width: 70%;
+  margin: 3%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#displayselecteduser {
+  margin-left: 25%;
+}
+
