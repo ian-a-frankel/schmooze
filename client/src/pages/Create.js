@@ -4,7 +4,7 @@ import Search from "../components/Search";
 import AddUser from "../components/AddUser";
 import RemoveUser from "../components/RemoveUser";
 import {useNavigate} from "react-router-dom"
-// import './create.css'
+import './create.css'
 
 function Create({currentUser}) {
 
@@ -114,8 +114,10 @@ function Create({currentUser}) {
             handleSubmit()
             }}>
                 <Search setNameSearchText={setNameSearchText} />
-                <label>Chat Name: </label>
+                <div id='searchbar'>
+                <label>Chat Name: </label><br/>
                 <input onChange={(e)=>{setChatName(e.target.value)}}  type="text" name="create" placeholder="Optional" />
+                </div>
                 <div id={deleteableMembers <= 0 ? null: 'displayselecteduser'}>
                 {displayRemove}
                 </div>
