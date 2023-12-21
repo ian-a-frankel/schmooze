@@ -44,23 +44,26 @@ function Login({attemptLogin, currentUser}) {
                 <>
                     <h2>🌺 Log In 🌺</h2>
                     <h1>Enter the Realm of Connectivity
-                      <br /> Schmooze
-                      <br />Where Every Login Unleashes Opportunities!</h1>
-                      <p>Enter your username and password to log in.</p>
-                      <form onSubmit={(e)=>{
-                          handleSubmit(e)
-                          setPressed(true)
-                      }}>
+
+                    <br /> Schmooze
+                    <br />Where Every Login Unleashes Opportunities!</h1>
+                    <p>Enter your username and password to log in.</p>
+                    <form onSubmit={(e)=>{
+                        handleSubmit(e)
+                        setPressed(true)
+                    }}>
+
                         <label className="UsernameLabel">Username</label>
                         <input className="UsernameSignUp" onChange={handleChange} type="text" name="full_name" placeholder="username goes here" /><br/>
                         <label className="UsernameLabel">Password</label>
                         <input className="PasswordSignUp" onChange={handleChange} type="text" name="password" placeholder="password goes here" /><br/>
 
-                        <button id='createchat' type="submit">Log in</button>
+
+                        <button className="login-button" type="submit">Log in</button>
                     </form>
-                    <button className="login-button" onClick={handleSubmit}>Log In</button>
-                    <Link to="/signup">Sign up here if you do not have an account</Link>
-                    <a className="signup-link" href="./Signup">Sign up here if you do not have an account</a>
+            
+                    <Link className="signup-link" to="/signup">Sign up here if you do not have an account</Link>
+
                 </>
             )}
 

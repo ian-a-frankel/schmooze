@@ -27,8 +27,14 @@ function Signup({ attemptSignup, currentUser }) {
         <>
 
         <NavBar currentUser={currentUser} />
-        <div className="signup-form">
-        <h2>⁜ Sign Up ⁜</h2>
+        <div className="signupOuterContainer">  
+                <div className="signupInnerContainer">
+                    <h1 className="heading">💬 Sign Up</h1>
+
+                    <h2 className="subHeading">Connect, Collaborate, Succeed 
+                    <br />Join Schmooze 
+                    <br />Where Opportunities Unfold!
+                    </h2>
             <form onSubmit={(e)=>{
                 handleSubmit(e)
                 navigate('/login')
@@ -43,7 +49,7 @@ function Signup({ attemptSignup, currentUser }) {
             </form>
         
         </div>
-
+        </div>
         </>
     );
 }
