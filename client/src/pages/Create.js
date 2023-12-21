@@ -4,7 +4,11 @@ import Search from "../components/Search";
 import AddUser from "../components/AddUser";
 import RemoveUser from "../components/RemoveUser";
 import {useNavigate} from "react-router-dom"
+
 import UnreadCounter from "../components/UnreadCounter";
+
+import './create.css'
+
 
 function Create({currentUser, pinger, setPinger}) {
 
@@ -109,23 +113,31 @@ function Create({currentUser, pinger, setPinger}) {
     })
     
     return(<>
+
     <NavBar currentUser={currentUser} pinger={pinger} setPinger={setPinger}/>
     <UnreadCounter currentUser={currentUser} pinger={pinger} setPinger={setPinger}/>
         <div className="create" >
-            <form className="create" onSubmit={e => {e.preventDefault()
+            
+            <form id='createchat' onSubmit={e => {e.preventDefault()
+
             handleSubmit()
             }}>
                 <Search setNameSearchText={setNameSearchText} />
-                
-                {displayRemove}
-                <label>Name: </label>
+                <div id='searchbar'>
+                <label>Chat Name: </label><br/>
                 <input onChange={(e)=>{setChatName(e.target.value)}}  type="text" name="create" placeholder="Optional" />
-                <button id='createchat' type="submit">Create Chat With Selected Users</button>
+                </div>
+                <div id={deleteableMembers <= 0 ? null: 'displayselecteduser'}>
+                {displayRemove}
+                </div>
+                <button className="create" type="submit">Create Chat With Selected Users</button>
+                <div id='displayselecteduser'>
                 {displayAddUsers}
+                </div>
                 
             </form>
-
         </div>
+
         </>
     )
 }

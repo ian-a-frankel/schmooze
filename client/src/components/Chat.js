@@ -10,7 +10,7 @@ function Chat({ conversation }) {
     <>
       <div className="conversation-container">
         <h3>{conversation.conversation.name}</h3>
-        <p>Last Message: {conversation.conversation.messages.slice(-1)[0].text}</p>
+        <p>Last Message: </p> <p style={{ fontSize: '1.3em'  }}>{conversation.conversation.messages.slice(-1)[0].text}</p>
         <p>Sent by: {conversation.conversation.messages.slice(-1)[0].user.full_name}</p>
         <p>Date Sent: {conversation.conversation.messages.slice(-1)[0].date_sent}</p>
         <p style={!conversation.unread? null: {color: "red"}}>Unread messages: {conversation.unread}</p>

@@ -27,23 +27,29 @@ function Signup({ attemptSignup, currentUser }) {
         <>
 
         <NavBar currentUser={currentUser} />
-        <div className="signup-form">
-        <h2>⁜ Sign Up ⁜</h2>
+        <div className="signupOuterContainer">  
+                <div className="signupInnerContainer">
+                    <h1 className="heading">💬 Sign Up</h1>
+
+                    <h2 className="subHeading">Connect, Collaborate, Succeed 
+                    <br />Join Schmooze 
+                    <br />Where Opportunities Unfold!
+                    </h2>
             <form onSubmit={(e)=>{
                 handleSubmit(e)
                 navigate('/login')
             }}>
-                <label>Enter your Username</label>
-                <input  onChange={handleChange} type="text" name="full_name" placeholder="Username" /><br/>
-                <label>Create Password</label>
-                <input onChange={handleChange} type="text" name="password" placeholder="Password" /><br/>
-                <label>Upload Avatar</label>
-                <input onChange={handleChange} type="text" name="image" placeholder="Image URL" /><br/>
-                <button id='createchat' type="submit">Sign Up</button>
+                <label className="label">Enter your Username</label>
+                <input  className="joinInput" onChange={handleChange} type="text" name="full_name" placeholder="Username" /><br/>
+                <label className="label1">Create Password</label>
+                <input className="joinInput1" onChange={handleChange} type="text" name="password" placeholder="Password" /><br/>
+                <label className="label2">Upload Avatar</label>
+                <input className="joinInput2" onChange={handleChange} type="text" name="image" placeholder="Image URL" /><br/>
+                <button type="submit">Sign Up</button>
             </form>
         
         </div>
-
+        </div>
         </>
     );
 }

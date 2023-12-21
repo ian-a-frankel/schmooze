@@ -187,10 +187,10 @@ img {
   border-radius: 50%;
 }
 
-#createchat {
+/* #createchat {
   position: static;
   margin: 5%;
-}
+} */
 
 .user {
   position: relative;
@@ -198,15 +198,6 @@ img {
   display: grid;
   align-items: center;
   grid-template-columns: 0.1fr 0.2fr 1fr;
-  column-gap: 5px;
-}
-
-.adduser {
-  position: relative;
-  margin-bottom: 5%;
-  display: grid;
-  align-items: center;
-  grid-template-columns: 0.2fr 0.2fr 1fr;
   column-gap: 5px;
 }
 
@@ -221,7 +212,20 @@ img {
   column-gap: 5px;
 }
 
-#user-box{
-  text-align: right;
+
+
+#logoutbtn {
+  position: static;
+  margin: 2% 5% 5% 48%;
+  border-radius: 30px;
+  background-color: #68d1e3
+}
+
+#yesbtn {
+  position: static;
+  margin: 2% 5% 5% 70%;
+  width: 100px;
+  border-radius: 30px;
+  background-color: #260347
 }
 

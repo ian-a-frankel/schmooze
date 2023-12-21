@@ -3,8 +3,8 @@
 
 function Search({setNameSearchText}) {
     return (
-        <div className="searchbar">
-          <label>Search Users:</label>
+        <div id='searchbar' >
+          <label >Search Users:</label><br/>
             
           <input onChange={(e)=> setNameSearchText(e.target.value)}  type="text" id="search" placeholder="Type username" />
         </div>

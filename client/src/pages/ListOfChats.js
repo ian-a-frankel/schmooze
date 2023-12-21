@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Chat from "../components/Chat";
 import NavBar from "../components/NavBar";
+import './ListOfChats.css'
 
 function ListOfChats({currentUser,URL, pinger, setPinger}) {
     
@@ -29,7 +30,9 @@ function ListOfChats({currentUser,URL, pinger, setPinger}) {
     })
     return(
         <>
+
         <NavBar currentUser={currentUser} pinger={pinger} setPinger={setPinger}/>
+
         <div className="chatlist">
             {info}
         </div>
