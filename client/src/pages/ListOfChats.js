@@ -3,7 +3,7 @@ import Chat from "../components/Chat";
 import NavBar from "../components/NavBar";
 import './ListOfChats.css'
 
-function ListOfChats({currentUser,URL}) {
+function ListOfChats({currentUser,URL, pinger, setPinger}) {
     
     const [userChats, setUserChat] = useState([])
     console.log(currentUser)
@@ -30,8 +30,9 @@ function ListOfChats({currentUser,URL}) {
     })
     return(
         <>
-        <NavBar currentUser={currentUser} />
-        
+
+        <NavBar currentUser={currentUser} pinger={pinger} setPinger={setPinger}/>
+
         <div className="chatlist">
             {info}
         </div>

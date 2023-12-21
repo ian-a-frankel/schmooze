@@ -2,10 +2,14 @@ import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import SingleMessage from "../components/SingleMessage";
 import NavBar from "../components/NavBar";
-import {io} from 'socket.io-client' 
+
+import './Conversation.css';
+import {io} from 'socket.io-client'
+import UnreadCounter from "../components/UnreadCounter"; 
 let socket;
 
-function Conversation({currentUser}) {
+function Conversation({currentUser, pinger, setPinger}) {
+
     const bottomRef = useRef(null)
 
     const [ucs, setUcs] = useState([])
@@ -54,7 +58,7 @@ function Conversation({currentUser}) {
             })
             
         }
-    }, [currentUser])
+    }, [currentUser, pinger])
 
     useEffect(() => {
         // open socket connection
@@ -138,17 +142,17 @@ function Conversation({currentUser}) {
     })
     
     const chatbox = msgarray().map((msg) => {
-        return <SingleMessage key={msg.id} msg={msg} />
+        return <SingleMessage key={msg.id} msg={msg} currentUser={currentUser}/>
     })
 
     return(
         <>
-        <NavBar currentUser={currentUser} />
+        <NavBar currentUser={currentUser} pinger={pinger} setPinger={setPinger}/>
         <div className="message">
-            <div id ='chat-box'>
+            <div className ='chat-box'>
             {chatbox}
             </div>
-            <div id="user-box">
+            <div className ="user-box">
                 <p>Schmoozers: </p>
             {userBox}
             </div>
@@ -167,8 +171,9 @@ function Conversation({currentUser}) {
                     placeholder="Type here"
                     onChange={(e) => setNewMessage({ ...newMessage, text: e.target.value})}
                 />
-                <button id='createchat' ref={bottomRef} type="submit">Send</button>
+                <button className='createchat' ref={bottomRef} type="submit">Send</button>
                 </form>
+                <UnreadCounter currentUser={currentUser} pinger={pinger}/>
         </>
     )
 }

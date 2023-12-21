@@ -4,9 +4,13 @@ import Search from "../components/Search";
 import AddUser from "../components/AddUser";
 import RemoveUser from "../components/RemoveUser";
 import {useNavigate} from "react-router-dom"
+
+import UnreadCounter from "../components/UnreadCounter";
+
 import './create.css'
 
-function Create({currentUser}) {
+
+function Create({currentUser, pinger, setPinger}) {
 
     const [allUsers, setAllUsers] = useState([])
     const [deleteableMembers, setDeleteableMembers] = useState([])
@@ -92,6 +96,7 @@ function Create({currentUser}) {
                 .then(resp => resp.json())
                 .then(data => {console.log(data)
                     if (currentUser.id === data.user_id) {
+                        setPinger(pinger + 1)
                         navigate(`/conversations/${data.conversation_id}`)
                     }
                 })
@@ -108,9 +113,13 @@ function Create({currentUser}) {
     })
     
     return(<>
-    <NavBar currentUser={currentUser} />
-        <div >
+
+    <NavBar currentUser={currentUser} pinger={pinger} setPinger={setPinger}/>
+    <UnreadCounter currentUser={currentUser} pinger={pinger} setPinger={setPinger}/>
+        <div className="create" >
+            
             <form id='createchat' onSubmit={e => {e.preventDefault()
+
             handleSubmit()
             }}>
                 <Search setNameSearchText={setNameSearchText} />

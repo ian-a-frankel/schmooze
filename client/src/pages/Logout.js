@@ -16,6 +16,7 @@ function Logout({logout, currentUser}) {
             <p>You will not be able to leave comments and like your favorite movies.</p>
             </div>
         </div>
+
             <button id='logoutbtn' onClick={()=>{
                 logout()
                 navigate('/')
