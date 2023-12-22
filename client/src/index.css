@@ -29,7 +29,7 @@ body, html {
   position: relative;
 }
 
-button {
+.homebutton button {
   position: absolute;
   bottom: -257%; /* Adjust the distance from the bottom as needed */
   left: 1300px; /* Adjust the distance from the right as needed */
