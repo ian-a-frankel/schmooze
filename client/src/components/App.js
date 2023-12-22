@@ -111,7 +111,7 @@ function App() {
   const routes = [
     {
       path: "/",
-      element: <Home currentUser={currentUser} />
+      element: <Home currentUser={currentUser} pinger={pinger} setPinger={setPinger}/>
     },
     {
       path: `/conversations/:id`,
@@ -131,7 +131,7 @@ function App() {
     },
     {
       path: "/logout",
-      element: <Logout logout={logout} currentUser={currentUser}/>
+      element: <Logout logout={logout} currentUser={currentUser} pinger={pinger} setPinger={setPinger}/>
     },
     {
       path: "/signup",

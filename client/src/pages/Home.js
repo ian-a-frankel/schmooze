@@ -6,10 +6,10 @@ import Message from "./Conversation";
 import {NavLink} from "react-router-dom"
 import NavBar from "../components/NavBar";
 
-function Home({currentUser}) {
+function Home({currentUser, pinger, setPinger}) {
     return(<>
 
-    <NavBar currentUser={currentUser} />
+    <NavBar currentUser={currentUser} pinger={pinger} setPinger={setPinger}/>
             
             
             <div class="image-container">
