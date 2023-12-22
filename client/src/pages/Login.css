@@ -27,7 +27,7 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Add a subtle box shadow for depth *
 .login-form p {
 margin-bottom: 0%;
 margin-top: -3%;
-margin-left: 66%;
+margin-left: 63%;
 padding-top: 0%;
 color: white;
 text-shadow: 2px 2px 4px rgba(232, 69, 132, 0.5); /* Neon glow effect */
@@ -36,8 +36,8 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 
 .login-form h2 {
 margin-bottom: 5%;
-margin-top: 40px;
-margin-left: 1300px;
+/* margin-top: 0%; */
+margin-left: 65%;
 color: white;
 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Neon glow effect */
 font-family: Georgia, 'Times New Roman', Times, serif;
@@ -66,16 +66,16 @@ flex-direction: column;
 }
 
 .UsernameLabel {
-margin-bottom: 150px;
-padding-top: 20px;
-padding: 20px;
+margin-bottom: 12%;
+/* padding-top: 5%; */
+padding: 2%;
 border: none;
 cursor: pointer;
 text-decoration: none;
 color: rgb(228, 243, 247);
 font-family: 'Playfair Display', serif;
 font-size: 22px;
-padding-left: 250px;
+padding-left: 12%;
 text-align: left;
 width: 30%;
 height: 30px;;
@@ -85,9 +85,9 @@ padding-bottom: 30px;
 
 
 .UsernameSignUp {
-margin-bottom: -40px;
-margin-right: 230px;
-margin-top: -147px;
+margin-bottom: -2%;
+margin-right: 12%;
+margin-top: -10%;
 border: none;
 cursor: pointer;
 background-color: #d7e8fc;
@@ -97,10 +97,10 @@ font-family: 'Lobster', cursive;
 font-size: 18px;
 text-decoration: none;
 color: rgb(1, 4, 5);
-padding-left: 222px;
-text-align: left;
+/* padding-left: 222px; */
+text-align: center;
 width: 30%;
-height: 28px;
+height: 10%;
 
 }
 
@@ -124,19 +124,21 @@ height: 28px;
 }
 
 .login-button {
-position: flex;
-bottom: 28%; /* Adjust the distance from the bottom as needed */
+position: static;
+bottom: 10%; /* Adjust the distance from the bottom as needed */
 left: 72%; /* Adjust the distance from the right as needed */
-padding: 5px;
-margin-right: 10%;
+padding: 0.5%;
+margin-top: 2%;
+margin-right: 25%;
 margin-left: auto;
-margin-bottom: -13%;
+/* margin-bottom: 1%; */
 border: none;
 cursor: pointer;
 background-color: #68f1f1;
 box-shadow: 0 0 10px rgb(62, 225, 44);
 transition: background-color 0.3s ease;
 font-size: extra-large;
+border-radius: 20%;
 }
 
 .login-button:hover {
@@ -147,7 +149,8 @@ box-shadow: 0 0 12px rgb(106, 224, 242);
 .signup-link {
 position: flex;
 padding: 1%;
-margin:  5% 12% 35% 60%;
+/* margin:  5% 12% 35% 60%; */
+margin-left: 48%;
 border: none;
 cursor: pointer;
 font-size: 140%;
