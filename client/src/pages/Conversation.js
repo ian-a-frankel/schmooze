@@ -148,24 +148,22 @@ function Conversation({currentUser, pinger, setPinger}) {
     return(
         <>
         <NavBar currentUser={currentUser} pinger={pinger} setPinger={setPinger}/>
-        <div className="message">
-            <div className ='chat-box'>
-            {chatbox}
-            </div>
+        <div className="message-container">
+            <div className ='chat-box'>{chatbox}</div>
             <div className ="user-box">
-                <p>Schmoozers: </p>
-            {userBox}
+                <p className="user-title" >Schmoozers: </p>
+                {userBox}
             </div>
-            </div>
-            <form className="message-form" onSubmit={(e) => {
-                e.preventDefault()
-                handleAddNewMessage();
-                e.target.reset();
-                setNewMessage({...newMessage, text: ''})
+        </div>
+        <form className="message-form" onSubmit={(e) => {
+            e.preventDefault()
+            handleAddNewMessage();
+            e.target.reset();
+            setNewMessage({...newMessage, text: ''})
 
-            }}>
-                <label>New Message</label>
-                <input
+        }}>
+            <label className="new-message-label">New Message</label>
+            <input className="new-message"
                     type="text"
                     name="new_message"
                     placeholder="Type here"
@@ -173,7 +171,9 @@ function Conversation({currentUser, pinger, setPinger}) {
                 />
                 <button className='createchat' ref={bottomRef} type="submit">Send</button>
                 </form>
+                <div className="counter-message">
                 <UnreadCounter currentUser={currentUser} pinger={pinger}/>
+                </div>
         </>
     )
 }

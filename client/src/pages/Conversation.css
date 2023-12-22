@@ -1,82 +1,167 @@
-/* Conversation Chatbox Styling */
 
-/* Chat Container */
-.message {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    height: 100vh;
-    background-color: #f4f4f4;
+#textmsg{
+    font-size: 150%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgb(96, 194, 209);
+    color: #030202;
+    background-color: #e6efef;
+    border-radius: 1%;
+    padding: 1%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);    
+    width: 300%;
+    height: 100%;
+    margin-left: 30%;
+    margin-right: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    
 }
 
-/* Chat Box */
-.chat-box {
-    flex: 2;
-    overflow-y: auto;
-    padding: 20px;
-}
-
-/* User Box */
-.user-box {
-    flex: 1;
-    padding: 20px;
-    background-color: #fff;
-}
-
-/* User Names */
-.user-box p {
-    margin: 4px;
+.user h4 {
+    margin: 3%, 0, 10px, 4px;
+    margin-bottom: 10%;
+    margin-top: 30%;
     font-weight: bold;
+    font-size: 150%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(8, 5, 10, 0.988);
+    color: #fff;
+    background-color: #68a1f1;
+    border-radius: 10px;
+}
+
+
+
+
+.user h5 {
+    margin: 3%, 0, 10px, 4px;
+    margin-bottom: 1%;
+    margin-top: 5%;
+    margin-left: 0%;
+    margin-right: 90%;
+    font-weight: thin;
+    font-size: 100%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+/* send button */
+.createchat{
+        position: flex;
+        bottom: 40%; /* Adjust the distance from the bottom as needed */
+        left: 31%; /* Adjust the distance from the right as needed */
+        right: 3%;
+        padding: 5px;
+        margin-right: 46%;
+        margin-left:1%;
+        margin-bottom: -98.5%;
+        cursor: pointer;
+        background-color: #68f1f1;
+        box-shadow: 0 0 10px rgb(62, 225, 44);
+        transition: background-color 0.3s ease;
+        font-size: extra-large;
+        border-radius: 5%;
+
+        }
+        
+.createchat:hover {
+        background-color: #cfea1e;
+        box-shadow: 0 0 12px rgb(106, 224, 242);
+}
+
+.user-box {
+    flex: auto;
+    padding: 10px;
+    background-color: #fff;
+    margin: 30%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(77, 164, 222);
+    transition: all 0.3s ease;
+    margin-bottom: 20%;
+    margin-top: -94%;
+    margin-left: 70%;
+    margin-right: 0%;
+    flex-direction: column;
+    height: 100vh;
+
+}
+
+.user-box p{
+    margin: 0%;
+    margin-bottom: 2%;
+    margin-top: 5%;
+    text-align: center;
+    font-family: lato, sans-serif;
+    text-shadow:rgb(96, 194, 209);
+    font-size: 150%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 2px 2px 4px rgb(149, 218, 226);
+    color: #000000;
+
 }
 
 /* Message Styling */
-.message-form {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #fff;
-    border-top: 1px solid #ddd;
-}
-
-.message-form input {
-    flex: 1;
-    padding: 8px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.message-form button {
-    padding: 8px 15px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-/* Sent Message Styling */
 .message.sent {
-    background-color: #4CAF50;
+    background-color: #68f1f1;
     color: white;
     border-radius: 10px;
     padding: 10px;
     margin: 10px 0;
 }
 
-/* Single Message Styling */
-/* Add styles for your SingleMessage component here */
+/* Message Styling */
+.message-form {
+    display: flex;
+    align-items: center;
 
-/* Optional: Scrollbar Styling */
-/* Customize the scrollbar appearance */
-/* For Webkit browsers (Chrome, Safari) */
+}
+
+.new-message {
+    flex: 1;
+    margin-right: 68%;
+    margin-bottom: 30%;
+    margin-top: 45%;
+    width: 30%;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.new-message-label {
+    display: none;
+}
+
+.counter-message{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: rgb(183, 71, 223);
+    text-shadow: 2px 2px 4px rgb(255, 255, 255); /* Neon glow effect */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 0%;
+    font-size: 12px;
+    margin-bottom: 40%;
+    margin-top: 59.99%;
+    margin-right: 10%;
+    font-family: lato, sans-serif;
+}
+
+.message-container ::-webkit-scrollbar {
+    display: flex;
+    width: 14px;
+}
 .chat-box::-webkit-scrollbar {
-    width: 12px;
+    display: flex;
+    width: 14px;
 }
 
 .chat-box::-webkit-scrollbar-thumb {
-    background-color: #4CAF50;
+    background-color: #4cf4e8;
     border-radius: 10px;
 }
 
@@ -90,26 +175,6 @@
 }
 
 .chat-box::-moz-scrollbar-thumb {
-    background-color: #4CAF50;
+    background-color: #3cdfcc;
     border-radius: 10px;
-}
-.createchat{
-        position: flex;
-        bottom: 40%; /* Adjust the distance from the bottom as needed */
-        left: 48%; /* Adjust the distance from the right as needed */
-        padding: 5px;
-        margin-right: 10%;
-        margin-left: auto;
-        margin-bottom: -40%;
-        border: none;
-        cursor: pointer;
-        background-color: #68f1f1;
-        box-shadow: 0 0 10px rgb(62, 225, 44);
-        transition: background-color 0.3s ease;
-        font-size: extra-large;
-        }
-        
-.createchat:hover {
-        background-color: #cfea1e;
-        box-shadow: 0 0 12px rgb(106, 224, 242);
 }

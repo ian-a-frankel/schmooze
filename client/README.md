@@ -6,13 +6,18 @@
 
 Welcome to Schmooze, where meaningful conversations and professional connections thrive. To get started and unlock the full potential of Schmooze, follow these simple installation instructions:
 
+
 1. **Server Setup:**
    ```bash
    cd server/
    pipenv install
    pipenv shell
+   flask db init
+   flask db migrate
+   flask db upgrade
    python app.py
    ```
+if you would like to explore the app with some fake user data run python seed.py before running app.py
 
 2. **Client Setup:**
    ```bash
