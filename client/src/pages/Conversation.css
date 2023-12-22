@@ -50,13 +50,14 @@
 /* send button */
 .createchat{
         position: flex;
-        bottom: 40%; /* Adjust the distance from the bottom as needed */
+        height: fit-content;
         left: 31%; /* Adjust the distance from the right as needed */
         right: 3%;
         padding: 5px;
-        margin-right: 46%;
+        margin-right: 70%;
         margin-left:1%;
-        margin-bottom: -98.5%;
+        margin-bottom: 0%;
+        margin-top: 0;
         cursor: pointer;
         background-color: #68f1f1;
         box-shadow: 0 0 10px rgb(62, 225, 44);
@@ -72,15 +73,17 @@
 }
 
 .user-box {
-    flex: auto;
-    padding: 10px;
+    
+    right: 10%;
+    top: 20%;
+    padding: 1%;
     background-color: #fff;
     margin: 30%;
     border-radius: 10px;
     box-shadow: 0 0 10px rgb(77, 164, 222);
     transition: all 0.3s ease;
     margin-bottom: 20%;
-    margin-top: -94%;
+    margin-top: -114%;
     margin-left: 70%;
     margin-right: 0%;
     flex-direction: column;
@@ -89,6 +92,7 @@
 }
 
 .user-box p{
+
     margin: 0%;
     margin-bottom: 2%;
     margin-top: 5%;
@@ -115,15 +119,18 @@
 .message-form {
     display: flex;
     align-items: center;
+    height: 10%;  
 
 }
 
 .new-message {
-    flex: 1;
+
+    position: flex;
     margin-right: 68%;
-    margin-bottom: 30%;
-    margin-top: 45%;
+    margin-bottom: 0%;
+    margin-top: 0%;
     width: 30%;
+    height: 60px;
     padding: 5px;
     border: none;
     border-radius: 5px;
@@ -131,11 +138,17 @@
 }
 
 .new-message-label {
-    display: none;
+margin-left: -70%;
+font-family: 'Times New Roman', Times, serif;
+font-size: 20px;
+font-weight: bold;
+text-shadow: 2px 2px 4px rgb(149, 218, 226);
+color: #000000;
+
 }
 
 .counter-message{
-    position: absolute;
+    position: flex;
     top: 0;
     right: 0;
     color: rgb(183, 71, 223);
@@ -145,36 +158,15 @@
     padding: 5px;
     border-radius: 0%;
     font-size: 12px;
-    margin-bottom: 40%;
-    margin-top: 59.99%;
+    margin-bottom: 0%;
+    margin-top: 0%;
     margin-right: 10%;
     font-family: lato, sans-serif;
 }
-
-.message-container ::-webkit-scrollbar {
-    display: flex;
-    width: 14px;
-}
-.chat-box::-webkit-scrollbar {
-    display: flex;
-    width: 14px;
+.message-container {
+    height: 50%;
+    width: 100%; 
+    overflow-y: scroll;
 }
 
-.chat-box::-webkit-scrollbar-thumb {
-    background-color: #4cf4e8;
-    border-radius: 10px;
-}
 
-/* For Firefox */
-.chat-box {
-    scrollbar-width: thin;
-}
-
-.chat-box::-moz-scrollbar {
-    width: 12px;
-}
-
-.chat-box::-moz-scrollbar-thumb {
-    background-color: #3cdfcc;
-    border-radius: 10px;
-}
